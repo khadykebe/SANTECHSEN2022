@@ -58,11 +58,11 @@
                                             <td>{{$utilisateur->email}}</td>
                                             <td>{{$utilisateur->telephone}}</td>
                                             <td>{{$utilisateur->adresse}}</td>
-                                            <td>{{$utilisateur->photo}}</td>
+                                            <td><img src="{{Storage::url($utilisateur->photo)}}" alt="" style="height:55px; width:55px"></td>
                                             <td>{{$utilisateur->status}}</td>
                                             <td>
                                                 <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
-                                                <button type="submit" class="btn btn-danger" id="delete" href="{{route('prodil.delete',$profil->id)}}"><i class="fa fa-trash"></i></button>
+                                                <button type="submit" class="btn btn-danger" id="delete" href="{{route('utilisateur.delete',$utilisateur->id)}}"><i class="fa fa-trash"></i></button>
                                             </td>
                                             </tr>
                                         </tr>
@@ -100,7 +100,7 @@
                               </ul>
                             </div><br />
                           @endif
-                            <form action="{{route('utilisateur.create')}}" method="post" class="form-validate">
+                            <form action="{{route('utilisateur.create')}}" method="post" class="form-validate" enctype="multipart/form-data">
                                 <div class="form-group">
                                     @csrf
                                     @method('POST')
@@ -137,16 +137,16 @@
                                         placeholder="" aria-describedby="helpId">
 
                                     <div class="form-group">
+
                                       <label for="">profil<strong style="color:red;">* </strong></label>
-
-                                        <select class="form-control" name="idProfil" id="idProfil" >
-                                            <option @foreach ($profils as $profil)
+                                        <select class="form-control" name="idProfil" id="idProfil" @foreach ($profils as $profil) >
+                                            <option
                                                 value="{{$profil->id}}" label="{{$profil->nomprofil}}"
-                                                @endforeach> profil</option>
-
+                                                > profil</option>
+                                         @endforeach
                                         </select>
 
-                                        
+
 
                                     </div>
 

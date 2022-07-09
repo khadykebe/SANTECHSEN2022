@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\DB;
 class UtilisateurController extends Controller
 {
     public function AllUtilisateur(){
+        $profils = Profil::all();
         $utilisateur = Utilisateur::all();
-        return view('PARENT.ADMINISTRATEUR.utilisateur')->with('utilisateurs',$utilisateur);
+        return view('PARENT.ADMINISTRATEUR.utilisateur',compact('profils'))->with('utilisateurs',$utilisateur);
     }
 
     public function UtilisateurCreate(Request $request){
@@ -22,20 +23,20 @@ class UtilisateurController extends Controller
             'password'=> 'required|max:255',
             'telephone'=> 'required|max:255',
             'adresse'=> 'required|max:255',
-            'photo'=> 'required|photo|mimes:jpeg,png,jpg,svg|max:2048',
+            'photo'=> 'required|mimes:jpeg,png,jpg,svg|max:2048',
             'status'=> 'required',
             'idProfil'=> 'required',
         ]);
-        $imageName = time().'.'.$request->image->extension();
-        $request->file('photo')->move(public_path('images'), $imageName);
-        $utilisateur = new Utilisateur();
+        $imageName = time().'.'.$request->photo->extension();
+        $path = $request->file('photo')->storeAs('images', $imageName,'public');
+        $utilisateur = new  Utilisateur();
         $utilisateur->nom = $request->nom;
         $utilisateur->prenom = $request->prenom;
         $utilisateur->email = $request->email;
         $utilisateur->password = bcrypt($request->email);
         $utilisateur->telephone = $request->telephone;
         $utilisateur->adresse = $request->adresse;
-        $utilisateur->photo =$imageName ;
+        $utilisateur->photo =$path ;
         $utilisateur->status = $request->status;
         $utilisateur->idProfil = $request->idProfil;
         $utilisateur->save();
@@ -65,9 +66,5 @@ class UtilisateurController extends Controller
     }
 
 
-    public function allProfil(){
-        $profil = Profil::all();
-        return view('PARENT.ADMINISTRATEUR.utilisateur')->with('profils',$profil);
-    }
 
 }

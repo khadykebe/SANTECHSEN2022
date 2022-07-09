@@ -38,4 +38,6 @@ class ProfilController extends Controller
     public function edit($id){
 
     }
+        
+
 }

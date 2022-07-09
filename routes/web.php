@@ -39,10 +39,9 @@ Route::get("profil/{id}",[ProfilController::class,"deleteProfil"])->name('prodil
 Route::post("updateprofil/{id}",[ProfilController::class,"updateProfil"])->name('profil.update');
 
 
-//route crud utilisateur
+//route crud utilisateur                                                                                                                            
 
-Route::get('utilisateur',[UtilisateurController::class,"allProfil"]);
 Route::get('utilisateur',[UtilisateurController::class,"AllUtilisateur"]);
 Route::post('create',[UtilisateurController::class,"UtilisateurCreate"])->name('utilisateur.create');
-Route::delete('delete/{id}',[Utilisateur::class,"destroy"])->name('utilisateur.delete');
+Route::get('utilisateur/{id}',[Utilisateur::class,"destroy"])->name('utilisateur.delete');
 Route::put('update/{id}',[Utilisateur::class,"update"])->name('utilisateur.update');
