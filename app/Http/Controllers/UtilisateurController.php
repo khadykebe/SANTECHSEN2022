@@ -33,7 +33,7 @@ class UtilisateurController extends Controller
         $utilisateur->nom = $request->nom;
         $utilisateur->prenom = $request->prenom;
         $utilisateur->email = $request->email;
-        $utilisateur->password = bcrypt($request->email);
+        $utilisateur->password = bcrypt($request->password);
         $utilisateur->telephone = $request->telephone;
         $utilisateur->adresse = $request->adresse;
         $utilisateur->photo =$path ;
@@ -48,20 +48,33 @@ class UtilisateurController extends Controller
         return redirect('utilisateur')->with('message','supression avec success');
     }
 
-    public function update(Request $request, $id){
-        $utilisateur =  $request->validate([
+    public function update(Request $request,$id){
+        $this->validate($request,[
             'nom' => 'required|max:255',
             'prenom'=> 'required|max:255',
             'email'=> 'required|email|unique:utilisateurs,email',
             'password'=> 'required|max:255',
             'telephone'=> 'required|max:255',
             'adresse'=> 'required|max:255',
-            'photo'=> 'required|photo|mimes:jpeg,png,jpg,svg|max:2048',
+            'photo'=> 'required|mimes:jpeg,png,jpg,svg|max:2048',
             'status'=> 'required',
             'idProfil'=> 'required',
         ]);
-
-        Utilisateur::whereId($id)->update($utilisateur);
+        if($request->hasFile('image')){
+            $imageName = time().'.'.$request->photo->extension();
+            $path = $request->file('photo')->storeAs('images', $imageName,'public');
+        }
+        DB::table('utilisateurs')->whereid($id)->update([
+            "nom" =>$request-> nom,
+            "prenom"=> $request-> prenom,
+            "email"=> $request-> email,
+            "password"=> bcrypt($request->password) ,
+            "telephone"=>$request->telephone ,
+            "adresse"=> $request-> adresse,
+            "photo"=>  $path,
+            "status"=> $request->status,
+            "idProfil"=> $request->idProfil,
+        ]);
         return redirect('utilisateur')->with('message','update reussit');
     }
 

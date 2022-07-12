@@ -36,12 +36,12 @@ Route::get('page',function(){return view('PARENT.Parametre.TypePage');});
 Route::get("profil",[ProfilController::class,"allProfil"]);
 Route::post("createProfil",[ProfilController::class,"createProfil"])->name('profil.create');
 Route::get("profil/{id}",[ProfilController::class,"deleteProfil"])->name('prodil.delete');
-Route::post("updateprofil/{id}",[ProfilController::class,"updateProfil"])->name('profil.update');
+Route::put("profil/{id}",[ProfilController::class,"updateProfil"])->name('profil.update');
+Route::get('chow/{id}',[ProfilController::class,'chowById'])->name('profil.chow');
 
-
-//route crud utilisateur                                                                                                                            
+//route crud utilisateur
 
 Route::get('utilisateur',[UtilisateurController::class,"AllUtilisateur"]);
 Route::post('create',[UtilisateurController::class,"UtilisateurCreate"])->name('utilisateur.create');
 Route::get('utilisateur/{id}',[Utilisateur::class,"destroy"])->name('utilisateur.delete');
-Route::put('update/{id}',[Utilisateur::class,"update"])->name('utilisateur.update');
+Route::put('utilisateur/{id}',[Utilisateur::class,"update"])->name('utilisateur.update');

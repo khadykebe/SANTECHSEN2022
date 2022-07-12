@@ -53,8 +53,10 @@
                                             <td>{{$profil->id}}</td>
                                             <td>{{$profil->nomprofil}}</td>
                                             <td>
+
                                                 <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
                                                 <button type="submit" class="btn btn-danger" id="delete" href="{{route('prodil.delete',$profil->id)}}"><i class="fa fa-trash"></i></button>
+                                                <button type="button" data-toggle="modal"class="btn btn-primary" href="#modal-formchow" ><i class="fa fa-eye" aria-hidden="true"></i></button>
                                             </td>
                                             </tr>
                                         </tr>
@@ -130,25 +132,46 @@
                               </ul>
                             </div><br/>
                           @endif
-                          @foreach ($profils as $profil)
-                          <form action="{{route('profil.update',$profil->id)}}" method="post" class="form-validate">
-                            <div class="form-group">
-                                @csrf
-                                @method('POST')
-                                <label for="">Role<strong style="color:red;">*</strong></label>
-                                <input type="text" name="nomprofil" id="nomprofil" class="form-control"
-                                    placeholder="" aria-describedby="helpId" value="{{$profil->nomprofil}}">
-                                <small id="helpId" class="text-muted">Help text</small>
-                            </div>
-                            <button type="reset" class="btn btn-secondary">annuler</button>
-                            <button type="submit" class="btn btn-primary" >valider</button>
-                        </form>
-                          @endforeach
+                          @foreach ($profils as $profil )
+                            <form action="{{route('profil.update',$profil->id)}}" method="post" class="form-validate">
+                                <div class="form-group">
+                                    @csrf
+                                    @method('PUT')
+                                    <label for="">Role<strong style="color:red;">*</strong></label>
+                                    <input type="text" name="nomprofil" id="nomprofil" class="form-control"
+                                        placeholder="" aria-describedby="helpId" value="{{ old('nomprofil') ?? $profil->nomprofil}}">
+                                    <small id="helpId" class="text-muted">Help text</small>
+                                </div>
+                                <button type="reset" class="btn btn-secondary">annuler</button>
+                                <button type="submit" class="btn btn-primary" >valider</button>
+                            </form>
+                        @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+
+        <div id="modal-formchow" class="modal fade" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    @if ($profilss ?? false)
+                                        <u><h3>id :</h3></u> {{$profilss->id}}
+                                        <u><h3>profil :</h3></u>{{$profilss->nomprofil}}
+                                    @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div>
     </section>
 @endsection

@@ -58,11 +58,12 @@
                                             <td>{{$utilisateur->email}}</td>
                                             <td>{{$utilisateur->telephone}}</td>
                                             <td>{{$utilisateur->adresse}}</td>
-                                            <td><img src="{{Storage::url($utilisateur->photo)}}" alt="" style="height:55px; width:55px"></td>
+                                            <td><img src="{{Storage::url($utilisateur->photo)}}" alt="" style="height:55px; width:60px"></td>
                                             <td>{{$utilisateur->status}}</td>
                                             <td>
                                                 <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
                                                 <button type="submit" class="btn btn-danger" id="delete" href="{{route('utilisateur.delete',$utilisateur->id)}}"><i class="fa fa-trash"></i></button>
+                                                <button data-toggle="modal"  type="button" class="btn btn-primary" href="#modal-formchow"><i class="fa fa-eye" aria-hidden="true"></i></button>
                                             </td>
                                             </tr>
                                         </tr>
@@ -145,9 +146,6 @@
                                                 > profil</option>
                                          @endforeach
                                         </select>
-
-
-
                                     </div>
 
                                 </div>
@@ -170,7 +168,7 @@
                             <button type="button" class="close" data-dismiss="modal"><span
                                     aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                             <h3 class="m-t-center-b">
-                                <center> ajouter un profil</center>
+                                <center> ajouter  utilisateur</center>
                             </h3>
                             @if ($errors->any())
                             <div class="alert alert-danger">
@@ -181,18 +179,81 @@
                               </ul>
                             </div><br/>
                           @endif
-                            <form action="" method="post" class="form-validate">
+
+                          <form action="{{route('utilisateur.update',$utilisateur->id)}}" method="post" class="form-validate" enctype="multipart/form-data">
+                            <div class="form-group">
+                                @csrf
+                                @method('PUT')
+                                <label for="">nom<strong style="color:red;">* </strong></label>
+                                <input type="text" name="nom" id="nom" class="form-control" value="{{$utilisateur->nom}}"
+                                    placeholder="" aria-describedby="helpId">
+
+                                <label for="">prenom<strong style="color:red;">* </strong></label>
+                                <input type="text" name="prenom" id="prenom" class="form-control" value="{{$utilisateur->prenom}}"
+                                    placeholder="" aria-describedby="helpId">
+
+                                <label for="">email<strong style="color:red;">* </strong></label>
+                                <input type="email" name="email" id="email" class="form-control" value="{{$utilisateur->email}}"
+                                    placeholder="" aria-describedby="helpId">
+
+                                <label for="">password<strong style="color:red;">* </strong></label>
+                                <input type="password" name="password" id="password" class="form-control" value="{{$utilisateur->password}}"
+                                    placeholder="" aria-describedby="helpId">
+
+                                <label for="">telephone<strong style="color:red;">* </strong></label>
+                                <input type="text" name="telephone" id="telephone" class="form-control" value="{{$utilisateur->telephone}}"
+                                    placeholder="" aria-describedby="helpId">
+
+                                <label for="">adresse<strong style="color:red;">* </strong></label>
+                                <input type="text" name="adresse" id="adresse" class="form-control" value="{{$utilisateur->adresse}}"
+                                    placeholder=""  aria-describedby="helpId">
+
+                                <label for="">photo<strong style="color:red;">* </strong></label>
+                                <input type="file" name="photo" id="photo" class="form-control"
+                                    placeholder="" aria-describedby="helpId">
+
+                                <label for="">status<strong style="color:red;">* </strong></label>
+                                <input type="text" name="status" id="status" class="form-control"
+                                    placeholder="" aria-describedby="helpId">
+
                                 <div class="form-group">
-                                    @csrf
-                                    @method('POST')
-                                    <label for="">Role<strong style="color:red;">*</strong></label>
-                                    <input type="text" name="nomprofil" id="nomprofil" class="form-control"
-                                        placeholder="" aria-describedby="helpId" value="">
-                                    <small id="helpId" class="text-muted">Help text</small>
+
+                                  <label for="">profil<strong style="color:red;">* </strong></label>
+                                    <select class="form-control" name="idProfil" id="idProfil" @foreach ($profils as $profil) >
+                                        <option
+                                            value="{{$profil->id}}" label="{{$profil->nomprofil}}"
+                                            > profil</option>
+                                     @endforeach
+                                    </select>
+
+
+
                                 </div>
-                                <button type="reset" class="btn btn-secondary">annuler</button>
-                                <button type="submit" class="btn btn-primary" >valider</button>
-                            </form>
+
+                            </div>
+                            <button type="reset" class="btn btn-secondary">annuler</button>
+                            <button type="submit" class="btn btn-primary" >valider</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-formchow" class="modal fade" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <button type="button" class="close" data-dismiss="modal"><span
+                                    aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <u><h3>nom:</h3></u><br>
+                                <u><h3>prenom :</h3></u><br>
+                                <u><h3>email :</h3></u><br>
+                                <u><h3>adresse :</h3></u><br>
+                                <u><h3>telephone :</h3></u><br>
+                                <u><h3>photo :</h3></u><br>
                         </div>
                     </div>
                 </div>
