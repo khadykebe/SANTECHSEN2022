@@ -43,7 +43,7 @@ class UtilisateurController extends Controller
         return redirect('utilisateur')->with('success','Utilisateur enrégistrer avec success');
     }
 
-    public function destroy($id){
+    public function delete($id){
         DB::table('utilisateurs')->whereId($id)->delete();
         return redirect('utilisateur')->with('message','supression avec success');
     }
@@ -53,7 +53,7 @@ class UtilisateurController extends Controller
             'nom' => 'required|max:255',
             'prenom'=> 'required|max:255',
             'email'=> 'required|email|unique:utilisateurs,email',
-            'password'=> 'required|max:255',
+            'password'=> 'required|max:8    ',
             'telephone'=> 'required|max:255',
             'adresse'=> 'required|max:255',
             'photo'=> 'required|mimes:jpeg,png,jpg,svg|max:2048',
@@ -78,6 +78,10 @@ class UtilisateurController extends Controller
         return redirect('utilisateur')->with('message','update reussit');
     }
 
+    public function chowById($id){
+        $utilisateur_chow = Utilisateur::find($id);
+        return view('utilisateur')->with('utilisateur',$utilisateur_chow);
+    }
 
 
 }

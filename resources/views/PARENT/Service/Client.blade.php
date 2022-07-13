@@ -1,141 +1,127 @@
 @extends('admin')
 @section('content')
 <section>
-    <div class="ibox float-e-margins">
-        <div class="ibox-title">
-            <h5>Liste partenaire</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link">
-                    <i class="fa fa-chevron-up"></i>
-                </a>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-wrench"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#">Config option 1</a>
-                    </li>
-                    <li><a href="#">Config option 2</a>
-                    </li>
-                </ul>
-                <a class="close-link">
-                    <i class="fa fa-times"></i>
-                </a>
-            </div>
+    <section class="tables">
+        <div style="text-align: center; ">
+            @if (session()->get('success'))
+                <center><h2 style="color: #13478d">{{ session()->get('success') }}</h2></center>
+            @endif
+
+            @if (session()->get('mes'))
+                 <center><h2 style="color: #13478d">{{ session()->get('mes') }}</h2></center>
+             @endif
         </div>
-        <div class="ibox-content">
-
-        <div class="table-responsive">
-        <table class="table table-striped table-bordered table-hover dataTables-example" >
-        <thead>
-        <tr>
-            <th>Id</th>
-            <th>Prenom Nom</th>
-            <th>Email</th>
-            <th>téléphone</th>
-            <th>Logo</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="gradeX">
-            <td>Trident</td>
-            <td>Internet
-                Explorer 4.0
-            </td>
-            <td>Win 95+</td>
-            <td class="center">4</td>
-            <td class="center">X</td>
-        </tr>
-        <tr class="gradeC">
-            <td>Trident</td>
-            <td>Internet
-                Explorer 5.0
-            </td>
-            <td>Win 95+</td>
-            <td class="center">5</td>
-            <td class="center">C</td>
-        </tr>
-        <tr class="gradeA">
-            <td>Trident</td>
-            <td>Internet
-                Explorer 5.5
-            </td>
-            <td>Win 95+</td>
-            <td class="center">5.5</td>
-            <td class="center">A</td>
-        </tr>
-        <tr class="gradeA">
-            <td>Trident</td>
-            <td>Internet
-                Explorer 6
-            </td>
-            <td>Win 98+</td>
-            <td class="center">6</td>
-            <td class="center">A</td>
-        </tr>
-        <tr class="gradeA">
-            <td>Trident</td>
-            <td>Internet Explorer 7</td>
-            <td>Win XP SP2+</td>
-            <td class="center">7</td>
-            <td class="center">A</td>
-        </tr>
-
-
-        </tbody>
-
-        </table>
-            </div>
-
+        <div style="text-align: center; ">
         </div>
-    </div>
+               <div class="wrapper wrapper-content animated fadeInRight">
+                   <div class="row">
+                       <div class="col-lg-12">
+                       <div class="ibox float-e-margins">
+                           <div class="ibox-title">
+                               <h5> Listes des <strong style="color: red"> clients </strong></h5>
+                               <div class="pull-right m-t-n-xs" >
+                                <a data-toggle="modal" class="btn btn-primary" href="#modal-form"><i class="fa fa-plus"
+                                    aria-hidden="true"></i>
+                                Ajouter</a>
+                                   <a class="collapse-link">
+                                       <i class="fa fa-chevron-up"></i>
+                                   </a>
+                                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                       <i class="fa fa-wrench"></i>
+                                   </a>
+                                   <ul class="dropdown-menu dropdown-user">
+                                       <li><a href="#">Config option 1</a>
+                                       </li>
+                                       <li><a href="#">Config option 2</a>
+                                       </li>
+                                   </ul>
+                                   <a class="close-link">
+                                       <i class="fa fa-times"></i>
+                                   </a>
+                               </div>
+                           </div>
+                           <div class="ibox-content">
+                       <div class="table-responsive">
+                      <table class="table table-striped table-bordered table-hover dataTables-example" >
+                           <thead>
+                           <tr>
+                                <th>id </th>
+                                <th>nom</th>
+                                <th>prenom</th>
+                                <th>email</th>
+                                <th>action</th>
+                           </tr>
+                           </thead>
+                           <tbody>
+                            @if ($clients ?? false)
+                                @foreach ($clients as $client)
+                                <tr>
+                                    <td>{{$client->id}}</td>
+                                    <td>{{$client->nomclient}}</td>
+                                    <td>{{$client->prenomclient}}</td>
+                                    <td>{{$client->emailClient}}</td>
 
-<div class="footer">
-<div class="pull-right">
-    10GB of <strong>250GB</strong> Free.
-</div>
-<div>
-    <strong>Copyright</strong> Example Company &copy; 2014-2017
-</div>
-</div>
+                                    <td>
+                                        <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
+                                        <button type="submit" class="btn btn-danger" id="delete" href="{{route('client_delete',$client->id)}}"><i class="fa fa-trash"></i></button>
+                                        <button type="button" data-toggle="modal"class="btn btn-primary" href="#modal-formchow" ><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            @endif
+                           </tfoot>
+                           </table>
+                            </div>
+                          </div>
+                       </div>
+                     </div>
+                   </div>
+                 </div>
+                 </div>
+               </div>
 
+               <div class="text-center">
+                               </div>
+                                   <div id="modal-form" class="modal fade" aria-hidden="true">
+                                       <div class="modal-dialog">
+                                           <div class="modal-content">
 
-
-
-
-<!-- Mainly scripts -->
-
-
-<!-- Page-Level Scripts -->
-<script>
-$(document).ready(function(){
-$('.dataTables-example').DataTable({
-    pageLength: ,
-    responsive: true,
-    dom: '<"html5buttons"B>lTfgitp',
-    buttons: [
-        {extend: 'copy'},
-        {extend: 'csv'},
-        {extend: 'excel', title: 'ExampleFile'},
-        {extend: 'pdf', title: 'ExampleFile'},
-
-        {extend: 'print',
-         customize: function (win){
-                $(win.document.body).addClass('white-bg');
-                $(win.document.body).css('font-size', '10px');
-
-                $(win.document.body).find('table')
-                        .addClass('compact')
-                        .css('font-size', 'inherit');
-        }
-        }
-    ]
-
-});
-
-});
-
-</script>
-
-</section>
-
+                                               <div class="modal-body">
+                                                   <div class="row">
+                                                       <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                       <h3 class="m-t-center-b"><center> formulaire d'ajouter client</center></h3>
+                                                        <form method="post" class="form-validate" action="{{route('client_create')}}" enctype="multipart/form-data">
+                                                            @csrf
+                                                            @method('POST')
+                                                            <div class="row">
+                                                                <div class="col-sm-6 col-xs-12">
+                                                                    <label>nom <strong style="color:red;">* </strong></label>
+                                                                    <input type="text" name="nomclient" id="nomclient" class="form-control"  required="">
+                                                                </div>
+                                                                <div class="col-sm-6 col-xs-12">
+                                                                    <label>prenom <strong style="color:red;">* </strong></label>
+                                                                    <input type="text" name="prenomclient" id="prenomclient" class="form-control"  required="">
+                                                                </div>
+                                                                <div class="col-sm-6 col-xs-12">
+                                                                    <label>email <strong style="color:red;">* </strong></label>
+                                                                    <input type="email" name="emailClient" id="emailClient" class="form-control"  required="">
+                                                                </div>
+                                                                <div class="col-sm-6 col-xs-12">
+                                                                    <label>password <strong style="color:red;">* </strong></label>
+                                                                    <input type="password" name="password" id="password" class="form-control"  required="">
+                                                                </div>
+                                                            </div>
+                                                             </br>
+                                                            <div class="col-xs-12">
+                                                                <input type="reset"  class="btn btn-default" value=" Annuler"></input>
+                                                                <button  class="btn btn-primary" name="submit"> valider</button>
+                                                            </div>
+                                                        </form>
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                  </div>
+                               </div>
+        </section>
 @endsection

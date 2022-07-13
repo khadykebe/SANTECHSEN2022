@@ -48,19 +48,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($profils as $profil)
+                                    @if ($profils ?? false)
+                                        @foreach ($profils as $profil)
                                         <tr>
                                             <td>{{$profil->id}}</td>
                                             <td>{{$profil->nomprofil}}</td>
                                             <td>
-
                                                 <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
                                                 <button type="submit" class="btn btn-danger" id="delete" href="{{route('prodil.delete',$profil->id)}}"><i class="fa fa-trash"></i></button>
                                                 <button type="button" data-toggle="modal"class="btn btn-primary" href="#modal-formchow" ><i class="fa fa-eye" aria-hidden="true"></i></button>
                                             </td>
                                             </tr>
                                         </tr>
-                                    @endforeach
+                                        @endforeach
+                                    @endif
+                                    @dump($profilss)
                                     </tbody>
                                 </table>
                             </div>
@@ -132,7 +134,6 @@
                               </ul>
                             </div><br/>
                           @endif
-                          @foreach ($profils as $profil )
                             <form action="{{route('profil.update',$profil->id)}}" method="post" class="form-validate">
                                 <div class="form-group">
                                     @csrf
@@ -145,7 +146,6 @@
                                 <button type="reset" class="btn btn-secondary">annuler</button>
                                 <button type="submit" class="btn btn-primary" >valider</button>
                             </form>
-                        @endforeach
                         </div>
                     </div>
                 </div>
@@ -174,4 +174,5 @@
         </div>
     </div>
     </section>
+
 @endsection

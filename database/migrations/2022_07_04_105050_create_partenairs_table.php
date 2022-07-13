@@ -17,6 +17,7 @@ class CreatePartenairsTable extends Migration
             $table->id();
             $table->string("nomPartenaire");
             $table->string("emailPartenaire")->unique();
+            $table->string("password");
             $table->string("telephone")->unique();
             $table->string("logo");
 

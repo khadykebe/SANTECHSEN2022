@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\UtilisateurController;
+use App\Models\Partenair;
 use App\Models\Utilisateur;
 use Illuminate\Support\Facades\Route;
 
@@ -43,5 +46,19 @@ Route::get('chow/{id}',[ProfilController::class,'chowById'])->name('profil.chow'
 
 Route::get('utilisateur',[UtilisateurController::class,"AllUtilisateur"]);
 Route::post('create',[UtilisateurController::class,"UtilisateurCreate"])->name('utilisateur.create');
-Route::get('utilisateur/{id}',[Utilisateur::class,"destroy"])->name('utilisateur.delete');
-Route::put('utilisateur/{id}',[Utilisateur::class,"update"])->name('utilisateur.update');
+Route::get('utilisateur/{id}',[Utilisateur::class,"delete"])->name('utilisateur.delete');
+Route::put('update/{id}',[Utilisateur::class,"update"])->name('utilisateur.update');
+Route::get('chow/{id}',[UtilisateurController::class,"chowById"]);
+
+// route Client
+
+Route::get('client',[ClientController::class,'AllClient']);
+Route::post('Client',[ClientController::class,'store'])->name('client_create');
+Route::get('client/{id}',[ClientController::class,'delete'])->name('client_delete');
+
+
+//route partenaire
+
+Route::get('liste',[PartenaireController::class,'AllPartenaire']);
+Route::post('liste',[PartenaireController::class,'store'])->name('partenaire.create');
+Route::get('liste/{id}',[PartenaireController::class,'delete'])->name('partenaire.delete');

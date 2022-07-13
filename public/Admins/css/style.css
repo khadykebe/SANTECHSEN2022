@@ -4787,7 +4787,7 @@ ul.clear-list:first-child {
   min-height: 100px;
 }
 .timeline-item .content:hover {
-  background: #f6f6f6;
+  background: #13478d;
 }
 /* PIN BOARD */
 ul.notes li,
@@ -5000,11 +5000,11 @@ ul.notes li div {
 }
 .file .file-name {
   padding: 10px;
-  background-color: #f8f8f8;
+  background-color: #13478d;
   border-top: 1px solid #e7eaec;
 }
 .file-name small {
-  color: #676a6c;
+  color: #13478d;
 }
 .corner {
   position: absolute;

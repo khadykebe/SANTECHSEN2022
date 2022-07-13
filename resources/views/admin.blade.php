@@ -39,7 +39,7 @@
                 <ul class="nav metismenu" id="side-menu">
                     <li class="nav-header">
                         <div class="dropdown profile-element"> <span>
-                            <img alt="image" class="img-circle" width="80px" height="80px" src="Admins/img/a1.jpg   " />
+                            <img alt="image" class="img-circle" width="80px" height="80px" src="Admins/img/Ywk6MagyeTEretcWCCz5.jpeg   " />
                              </span>
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">     prenom  numero </strong>

@@ -50,24 +50,27 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach ($utilisateurs as $utilisateur)
-                                        <tr>
-                                            <td>{{$utilisateur->id}}</td>
-                                            <td>{{$utilisateur->nom}}</td>
-                                            <td>{{$utilisateur->prenom}}</td>
-                                            <td>{{$utilisateur->email}}</td>
-                                            <td>{{$utilisateur->telephone}}</td>
-                                            <td>{{$utilisateur->adresse}}</td>
-                                            <td><img src="{{Storage::url($utilisateur->photo)}}" alt="" style="height:55px; width:60px"></td>
-                                            <td>{{$utilisateur->status}}</td>
-                                            <td>
-                                                <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
-                                                <button type="submit" class="btn btn-danger" id="delete" href="{{route('utilisateur.delete',$utilisateur->id)}}"><i class="fa fa-trash"></i></button>
-                                                <button data-toggle="modal"  type="button" class="btn btn-primary" href="#modal-formchow"><i class="fa fa-eye" aria-hidden="true"></i></button>
-                                            </td>
+                                    @if ($utilisateurs ?? false)
+                                        @foreach ($utilisateurs as $utilisateur)
+                                            <tr>
+                                                <td>{{$utilisateur->id}}</td>
+                                                <td>{{$utilisateur->nom}}</td>
+                                                <td>{{$utilisateur->prenom}}</td>
+                                                <td>{{$utilisateur->email}}</td>
+                                                <td>{{$utilisateur->telephone}}</td>
+                                                <td>{{$utilisateur->adresse}}</td>
+                                                <td><img src="{{Storage::url($utilisateur->photo)}}" alt="" style="height:55px; width:60px"></td>
+                                                <td>{{$utilisateur->status}}</td>
+                                                <td>
+                                                    <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
+                                                    <button type="submit" class="btn btn-danger" id="delete" href="{{route('utilisateur.delete',$utilisateur->id)}}"><i class="fa fa-trash"></i></button>
+                                                    <button data-toggle="modal"  type="button" class="btn btn-primary" href="#modal-formchow"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                                                </td>
+                                                </tr>
                                             </tr>
-                                        </tr>
-                                    @endforeach
+                                        @endforeach
+                                    @endif
+
                                     </tbody>
                                 </table>
                             </div>
@@ -248,12 +251,14 @@
                         <div class="row">
                             <button type="button" class="close" data-dismiss="modal"><span
                                     aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                <u><h3>nom:</h3></u><br>
-                                <u><h3>prenom :</h3></u><br>
-                                <u><h3>email :</h3></u><br>
-                                <u><h3>adresse :</h3></u><br>
-                                <u><h3>telephone :</h3></u><br>
-                                <u><h3>photo :</h3></u><br>
+                                @if ($utilisateur_chow ?? false)
+                                    <u><h3>nom:</h3></u>{{$utilisateur_chow->id}}<br>
+                                    <u><h3>prenom :</h3></u>{{$utilisateur_chow->id}}<br>
+                                    <u><h3>email :</h3></u>{{$utilisateur_chow->id}}<br>
+                                    <u><h3>adresse :</h3></u>{{$utilisateur_chow->id}}<br>
+                                    <u><h3>telephone :</h3>{{$utilisateur_chow->id}}</u><br>
+                                    <u><h3>photo :</h3></u>{{$utilisateur_chow->id}}<br>
+                                @endif
                         </div>
                     </div>
                 </div>
