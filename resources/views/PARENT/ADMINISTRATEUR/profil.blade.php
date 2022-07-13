@@ -62,7 +62,6 @@
                                         </tr>
                                         @endforeach
                                     @endif
-                                    @dump($profilss)
                                     </tbody>
                                 </table>
                             </div>
