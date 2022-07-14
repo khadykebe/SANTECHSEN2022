@@ -84,6 +84,7 @@
                     <li>
                         <a href="#"><i class="fa fa-wheelchair"></i> <span class="nav-label">services</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
+                            <li class="active"><a href="service">services</a></li>
                              <li class="active"><a href="demande">Demande</a></li>
                              <li class="active"><a href="client">Client</a></li>
                         </ul>

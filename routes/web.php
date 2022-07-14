@@ -4,6 +4,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UtilisateurController;
 use App\Models\Partenair;
 use App\Models\Utilisateur;
@@ -31,6 +32,7 @@ Route::get('utilisateur',function(){return view('PARENT.ADMINISTRATEUR.utilisate
 Route::get('profil',function(){return view('PARENT.ADMINISTRATEUR.profil');});
 Route::get('liste',function(){return view('PARENT.Partenaire.ListePartenaire'); });
 Route::get('demande',function(){return view('PARENT.Service.Demande');});
+Route::get('service',function(){return view('PARENT.Service.service');});
 Route::get('client',function(){return view('PARENT.Service.Client');});
 Route::get('service',function(){return view('PARENT.Parametre.TypeService');});
 Route::get('page',function(){return view('PARENT.Parametre.TypePage');});
@@ -67,3 +69,7 @@ Route::get('client/{id}',[ClientController::class,'delete'])->name('client_delet
 Route::get('liste',[PartenaireController::class,'AllPartenaire']);
 Route::post('liste',[PartenaireController::class,'store'])->name('partenaire.create');
 Route::get('liste/{id}',[PartenaireController::class,'delete'])->name('partenaire.delete');
+
+//route service
+
+Route::get('service',[ServiceController::class,'AllService']);
