@@ -32,8 +32,8 @@
 <body id="page-top" >
 <div class="header1 " style="background: #005c96f3">
     <div class="container">
-        <div class="row shadow" >
-            <div class="col-lg-7 col-md-12 mb-10 ">
+        <div class="row " >
+            <div class="col-lg-7 col-md-12">
                 <ul class="list-inline" >
                     <li><a href="#"><i style="color: white"  class="fa fa-phone" aria-hidden="true"></i>+221 33 836 52 63</a></li>
                     <li><a href="#"><i class="fa fa-location-arrow" aria-hidden="true"></i>santechsen2022@gmail.com</a></li>
@@ -76,7 +76,7 @@
                                 <li><a class="page-scroll" href="#team">evenement</a></li>
                                 <li><a class="page-scroll" href="#testimonials">partenaire</a></li>
                                 <li><a class="page-scroll" href="#pricing">qui somme nous</a></li>
-                                <li><a href="#" class="button-btn" ><button type="button" class="btn btn-primary">connection</button></a></li>
+                                <li><a><button   href="#modal-form" aria-hidden="true" data-toggle="modal" type="button" class="btn btn-primary">connection</button></a></li>
                             </ul>
                         </div>
                     </div>
@@ -94,8 +94,8 @@
             <div class="container">
                 <div class="carousel-caption">
                     <h1>santechsen<br/>
-                        est une application <br/>
-                        au service de la sante<br/>
+                        est une entreprise <br/>
+                        au service de la sante<br/><br>
                         </h1>
                     <p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">LIEN YouTube</a>
@@ -109,6 +109,8 @@
             <div class="header-back one"></div>
 
         </div>
+
+
         <div class="item">
             <div class="container">
                 <div class="carousel-caption blank">
@@ -660,6 +662,43 @@
         </div>
     </div>
 </section>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+  Launch
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Authentification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="post">
+                <div class="form-group">
+                    <label for="">email</label>
+                    <input type="text" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpId" class="text-muted">Help text</small>
+
+                    <label for="">password</label>
+                    <input type="text" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
+                    <small id="helpId" class="text-muted">Help text</small>
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="{{asset('Utilisateurs/js/jquery-2.1.1.js')}}"></script>
 <script src="{{asset('Utilisateurs/js/pace.min.js')}}"></script>
 <script src="{{asset('jUtilisateurs/s/bootstrap.min.js')}}"></script>

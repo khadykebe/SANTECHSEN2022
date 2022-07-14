@@ -4,11 +4,15 @@
         <div style="text-align: center; ">
         </div>
         @if (session()->get('success'))
-                <center><h2 style="color: #13478d">{{ session()->get('success') }}</h2></center>
+            <center>
+                <h2 style="color: #13478d">{{ session()->get('success') }}</h2>
+            </center>
         @endif
 
         @if (session()->get('message'))
-                <center><h2 style="color: #13478d">{{ session()->get('message') }}</h2></center>
+            <center>
+                <h2 style="color: #13478d">{{ session()->get('message') }}</h2>
+            </center>
         @endif
         <div class="wrapper wrapper-content animated fadeInRight">
             <div class="row">
@@ -20,21 +24,21 @@
                                 <a data-toggle="modal" class="btn btn-primary" href="#modal-form"><i class="fa fa-plus"
                                         aria-hidden="true"></i>
                                     Ajouter</a>
-                                    <a class="collapse-link">
-                                        <i class="fa fa-chevron-up"></i>
-                                    </a>
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <i class="fa fa-wrench"></i>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="#">Config option 1</a>
-                                        </li>
-                                        <li><a href="#">Config option 2</a>
-                                        </li>
-                                    </ul>
-                                    <a class="close-link">
-                                        <i class="fa fa-times"></i>
-                                    </a>
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
                             </div>
                         </div>
                         <div class="ibox-content">
@@ -48,20 +52,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    @if ($profils ?? false)
-                                        @foreach ($profils as $profil)
-                                        <tr>
-                                            <td>{{$profil->id}}</td>
-                                            <td>{{$profil->nomprofil}}</td>
-                                            <td>
-                                                <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
-                                                <button type="submit" class="btn btn-danger" id="delete" href="{{route('prodil.delete',$profil->id)}}"><i class="fa fa-trash"></i></button>
-                                                <button type="button" data-toggle="modal"class="btn btn-primary" href="#modal-formchow" ><i class="fa fa-eye" aria-hidden="true"></i></button>
-                                            </td>
-                                            </tr>
-                                        </tr>
-                                        @endforeach
-                                    @endif
+                                        @if ($profils ?? false)
+                                            @foreach ($profils as $profil)
+                                                <tr>
+                                                    <td>{{ $profil->id }}</td>
+                                                    <td>{{ $profil->nomprofil }}</td>
+                                                    <td>
+                                                        <button data-toggle="modal" type="button" class="btn btn-warning"
+                                                            href="#modal-formUP"><i class="fa fa-pencil"></i></button>
+                                                        <button type="submit" class="btn btn-danger" id="delete"
+                                                            href="{{ route('prodil.delete', $profil->id) }}"><i
+                                                                class="fa fa-trash"></i></button>
+                                                        <button type="button" data-toggle="modal"class="btn btn-primary"
+                                                            href="#modal-formchow"><i class="fa fa-eye"
+                                                                aria-hidden="true"></i></button>
+                                                    </td>
+                                                </tr>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                     </tbody>
                                 </table>
                             </div>
@@ -87,15 +96,15 @@
                                 <center> ajouter un profil</center>
                             </h3>
                             @if ($errors->any())
-                            <div class="alert alert-danger">
-                              <ul>
-                                  @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                  @endforeach
-                              </ul>
-                            </div><br />
-                          @endif
-                            <form action="{{route('profil.create')}}" method="post" class="form-validate">
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div><br />
+                            @endif
+                            <form action="{{ route('profil.create') }}" method="post" class="form-validate">
                                 <div class="form-group">
                                     @csrf
                                     @method('POST')
@@ -104,8 +113,8 @@
                                         placeholder="" aria-describedby="helpId">
                                     <small id="helpId" class="text-muted">Help text</small>
                                 </div>
-                                <button type="reset" class="btn btn-secondary">annuler</button>
-                                <button type="submit" class="btn btn-primary" >valider</button>
+                                <button type="reset" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                                <button type="submit" class="btn btn-primary">valider</button>
                             </form>
                         </div>
                     </div>
@@ -125,25 +134,26 @@
                                 <center> ajouter un profil</center>
                             </h3>
                             @if ($errors->any())
-                            <div class="alert alert-danger">
-                              <ul>
-                                  @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                  @endforeach
-                              </ul>
-                            </div><br/>
-                          @endif
-                            <form action="{{route('profil.update',$profil->id)}}" method="post" class="form-validate">
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div><br />
+                            @endif
+                            <form action="{{ route('profil.update', $profil->id) }}" method="post" class="form-validate">
                                 <div class="form-group">
                                     @csrf
                                     @method('PUT')
                                     <label for="">Role<strong style="color:red;">*</strong></label>
                                     <input type="text" name="nomprofil" id="nomprofil" class="form-control"
-                                        placeholder="" aria-describedby="helpId" value="{{ old('nomprofil') ?? $profil->nomprofil}}">
+                                        placeholder="" aria-describedby="helpId"
+                                        value="{{ old('nomprofil') ?? $profil->nomprofil }}">
                                     <small id="helpId" class="text-muted">Help text</small>
                                 </div>
-                                <button type="reset" class="btn btn-secondary">annuler</button>
-                                <button type="submit" class="btn btn-primary" >valider</button>
+                                <button type="reset" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                                <button type="submit" class="btn btn-primary">valider</button>
                             </form>
                         </div>
                     </div>
@@ -162,16 +172,71 @@
                         <div class="row">
                             <button type="button" class="close" data-dismiss="modal"><span
                                     aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                    @if ($profilss ?? false)
-                                        <u><h3>id :</h3></u> {{$profilss->id}}
-                                        <u><h3>profil :</h3></u>{{$profilss->nomprofil}}
-                                    @endif
+                            @if ($profils ?? false)
+                                <u>
+                                    <h3>id :</h3>
+                                </u> {{ $profil->id }}
+                                <u>
+                                    <h3>profil :</h3>
+                                </u>{{ $profil->nomprofil }}
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        </div>
     </section>
+
+    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Authentification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @if (session()->get('messagelogin'))
+                        <div class="alert alert-danger">
+                            {{ session()->get('messagelogin') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('login') }}" method="POST" class="form-validate">
+                        <div class="form-group">
+                            @csrf
+                            @method('POST')
+                            <div class="row">
+                                <div class="col-sm-6 col-sx-12">
+                                    <label for="">email</label>
+                                    <input type="email" name="email" id="email" class="form-control"
+                                        placeholder="" aria-describedby="helpId">
+                                    <small id="helpId" class="text-muted">Help text</small> <br>
+                                </div>
+
+                                <div class="col-sm-6 col-sx-12">
+                                    <label for="">password</label>
+                                    <input type="password" name="password" id="password" class="form-control"
+                                        placeholder="" aria-describedby="helpId">
+                                    <small id="helpId" class="text-muted">Help text</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+        Launch
+    </button>
 
 @endsection

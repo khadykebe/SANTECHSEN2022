@@ -43,9 +43,9 @@ class UtilisateurController extends Controller
         return redirect('utilisateur')->with('success','Utilisateur enrégistrer avec success');
     }
 
-    public function delete($id){
+    public function deleteUtilisateur($id){
         DB::table('utilisateurs')->whereId($id)->delete();
-        return redirect('utilisateur')->with('message','supression avec success');
+        return redirect()->route('utilisateur.index')->with('message','supression avec success');
     }
 
     public function update(Request $request,$id){
@@ -75,13 +75,15 @@ class UtilisateurController extends Controller
             "status"=> $request->status,
             "idProfil"=> $request->idProfil,
         ]);
-        return redirect('utilisateur')->with('message','update reussit');
+        return view('utilisateur')->with('message','update reussit');
     }
 
     public function chowById($id){
         $utilisateur_chow = Utilisateur::find($id);
         return view('utilisateur')->with('utilisateur',$utilisateur_chow);
     }
+
+     
 
 
 }
