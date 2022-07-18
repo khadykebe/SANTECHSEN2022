@@ -19,7 +19,7 @@ class CreateServicesTable extends Migration
             $table->string("contenue");
             $table->string("image");
             $table->unsignedBigInteger("cout");
-            $table->date("dateCreation");
+            $table->string("dateCreation");
             $table->integer("status");
 
             $table->unsignedBigInteger("idTypeService")->nullable();

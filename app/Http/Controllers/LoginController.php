@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Utilisateur;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -15,6 +16,7 @@ class LoginController extends Controller
         ]);
         $user = Utilisateur::where('email' , $request->email)->first();
         if ($user != null && Hash::check($request->password, $user->password)) {
+            session()->put('id-user', $user->id);;
             return redirect('admin');
         }
         else

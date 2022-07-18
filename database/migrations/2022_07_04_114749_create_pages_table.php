@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
             $table->id();
             $table->string("contenue");
             $table->string("image");
-            $table->date("date");
+            $table->string("date");
 
             $table->unsignedBigInteger("idTypePage")->nullable();
             $table->unsignedBigInteger("idUtilisateur")->nullable();

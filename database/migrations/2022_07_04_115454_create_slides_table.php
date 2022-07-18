@@ -17,7 +17,7 @@ class CreateSlidesTable extends Migration
             $table->id();
             $table->string("contenue");
             $table->string("image");
-            $table->date("dateCreation");
+            $table->string("dateCreation");
 
             $table->unsignedBigInteger("idUtilisateur")->nullable();
             $table->foreign("idUtilisateur")->references("id")->on("utilisateurs");

@@ -53,7 +53,6 @@
                             <th>cout</th>
                             <th>dateCreation</th>
                             <th>TypeService</th>
-                            <th>Utilisateur</th>
                             <th>action</th>
                        </tr>
                        </thead>
@@ -68,8 +67,6 @@
                                 <td>{{$service->cout}}</td>
                                 <td>{{$service->dateCreation}}</td>
                                 <td>{{$service->TypeService}}</td>
-                                <td>{{$service->Utilisateur}}</td>
-
                                 <td>
                                     <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
                                     <button type="submit" class="btn btn-danger" id="delete" href="{{route('client_delete',$client->id)}}"><i class="fa fa-trash"></i></button>

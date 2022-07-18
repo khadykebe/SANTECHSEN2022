@@ -20,7 +20,18 @@ class Utilisateur extends Model
     ];
 
     public function profil(){
-        return $this->belongsTo(profil::class);
+        return $this->belongsTo(Profil::class);
     }
 
+    public function Service(){
+        return $this->hasOne(Service::class);
+    }
+
+    public function typepage(){
+        return $this->hasOne(TypePage::class);
+    }
+
+    public function slide(){
+        return $this->hasOne(Slide::class);
+    }
 }

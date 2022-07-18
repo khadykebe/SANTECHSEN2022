@@ -16,7 +16,7 @@ class CreateTypePagesTable extends Migration
         Schema::create('type_pages', function (Blueprint $table) {
             $table->id();
             $table->string("nomType");
-            $table->date("dateCreation");
+            $table->string("dateCreation");
             $table->integer("status");
 
             $table->unsignedBigInteger("idUtilisateur")->nullable();

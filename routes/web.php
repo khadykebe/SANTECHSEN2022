@@ -5,6 +5,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SlideController;
+use App\Http\Controllers\TypePageController;
 use App\Http\Controllers\UtilisateurController;
 use App\Models\Partenair;
 use App\Models\Utilisateur;
@@ -35,11 +37,11 @@ Route::get('demande',function(){return view('PARENT.Service.Demande');});
 Route::get('service',function(){return view('PARENT.Service.service');});
 Route::get('client',function(){return view('PARENT.Service.Client');});
 Route::get('service',function(){return view('PARENT.Parametre.TypeService');});
-Route::get('page',function(){return view('PARENT.Parametre.TypePage');});
+Route::get('TypePage',function(){return view('PARENT.Parametre.TypePage');});
 
 
 //loin utilisateur
-Route::post('profil',[LoginController::class,'login'])->name('login');
+Route::post('admin',[LoginController::class,'login'])->name('login');
 
 // route crud profil
 
@@ -52,7 +54,7 @@ Route::get('chow/{id}',[ProfilController::class,'chowById'])->name('profil.chow'
 //route crud utilisateur
 
 Route::get('utilisateur',[UtilisateurController::class,"AllUtilisateur"])->name('utilisateur.index');
-Route::post('create',[UtilisateurController::class,"UtilisateurCreate"])->name('utilisateur.create');
+Route::post('utilisateur',[UtilisateurController::class,"UtilisateurCreate"])->name('utilisateur.create');
 Route::get('utilisateur/{id}',[UtilisateurController::class,"deleteUtilisateur"])->name('utilisateur.delete');
 Route::put('update/{id}',[UtilisateurController::class,"update"])->name('utilisateur.update');
 Route::get('chow/{id}',[UtilisateurController::class,"chowById"]);
@@ -73,3 +75,13 @@ Route::get('liste/{id}',[PartenaireController::class,'delete'])->name('partenair
 //route service
 
 Route::get('service',[ServiceController::class,'AllService']);
+
+
+//route  typePage
+Route::get('TypePage',[TypePageController::class,'AllTypepage']);
+Route::post('TypePage',[TypePageController::class,'store'])->name('create.typepage');
+
+//route slide
+
+Route::get('slide',[SlideController::class,'AllSlide']);
+Route::post('create',[SlideController::class,'store'])->name('create.slide');

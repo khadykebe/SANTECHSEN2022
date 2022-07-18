@@ -4,8 +4,6 @@
 <section class="dashboard-counts no-padding-bottom">
     <div class="wrapper wrapper-content animated fadeInRight">
          <div class="row">
-
-
              <div class="col-lg-4" >
                  <div class="widget style1 navy-bg"style="background-color: #135d8d ">
                      <div class="row" >

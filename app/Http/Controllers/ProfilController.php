@@ -38,7 +38,7 @@ class ProfilController extends Controller
     }
 
     public function chowById($id){
-        $profilss = Profil::findOrFail($id);
+        $profilss = Profil::findOrFail  ($id);
         return view('profil',compact('profilss'));
     }
 }

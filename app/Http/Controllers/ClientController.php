@@ -20,6 +20,7 @@ class ClientController extends Controller
             'emailClient'=>'required',
             'password'=>'required|max:8',
         ]);
+        
         $client = new Client();
         $client->nomclient = $request->nomclient;
         $client->prenomclient = $request->prenomclient;

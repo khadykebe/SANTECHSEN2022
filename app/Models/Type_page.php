@@ -5,24 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class Type_page extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nomService',
-        'contenue',
-        'image',
-        'cout',
+        'nomType',
         'dateCreation',
-        'idTypeService',
+        'status',
         'idUtilisateur',
     ];
 
-    public function typepage(){
-        return $this->belongsTo(TypePage::class);
+    public function service(){
+        return $this->hasOne(Service::class);
     }
 
-    public function utilisateure(){
+    public function utilisateur(){
+
         return $this->belongsTo(Utilisateur::class);
     }
+
 }

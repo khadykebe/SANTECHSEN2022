@@ -698,6 +698,12 @@
         </div>
     </div>
 </div>
+<form action="{{route('login')}}" method="post">
+    @csrf
+    <input type="email" name="email" id="email">
+    <input type="password" name="password" id="password">
+    <button type="submit">send</button>
+</form>
 
 <script src="{{asset('Utilisateurs/js/jquery-2.1.1.js')}}"></script>
 <script src="{{asset('Utilisateurs/js/pace.min.js')}}"></script>

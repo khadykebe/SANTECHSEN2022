@@ -15,13 +15,13 @@ class CreateDemandeServicesTable extends Migration
     {
         Schema::create('demande_services', function (Blueprint $table) {
             $table->id();
-            $table->date("dateService");
+            $table->string("dateService");
             $table->unsignedBigInteger("idService")->nullable();
             $table->unsignedBigInteger("idClient")->nullable();
 
             $table->foreign("idService")->references("id")->on("services");
             $table->foreign("idClient")->references("id")->on("clients");
-            
+
             $table->timestamps();
         });
     }
