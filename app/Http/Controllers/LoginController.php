@@ -20,6 +20,6 @@ class LoginController extends Controller
             return redirect('admin');
         }
         else
-            return redirect('profil')->with('messagelogin','Email ou mot de passe incorect .');
+            return redirect('/')->with('messagelogin','Email ou mot de passe incorect .');
      }
 }

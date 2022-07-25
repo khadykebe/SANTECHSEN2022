@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Type_page;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TypePageController extends Controller
 {
@@ -18,22 +19,22 @@ class TypePageController extends Controller
             $this->validate($request ,[
                 'nomType'=>'required',
                 'dateCreation'=>'required',
-                'status'=>'required',
-                'idUtilisateur'=>'required',
             ]);
 
             $typepage = new Type_page();
             $typepage->nomType = $request->nomType;
             $typepage->dateCreation = $request->dateCreation;
-            $typepage->status = $request->status;
-            $typepage->idUtilisateur = session()->get('id_user');
-            if( $typepage!= null){
-                $typepage->save();
-                session()->put('nom',$typepage->nomType);
-                return view('TypePage')->with('mess','ajout reussit');
-            }
-            else
-                return view('profil')->with('mess','ajout reussit');
+            $typepage->status = 1;
+            $typepage->idUtilisateur = 1;
+            $typepage->save();
+            return redirect('TypePage')->with('mess','ajout reussit');
+
 
     }
+
+    public function destroy($id){
+        DB::table('type_pages')->whereId($id)->delete();
+        return redirect('TypePage')->with('sup','supression reussit');
+    }
+
 }

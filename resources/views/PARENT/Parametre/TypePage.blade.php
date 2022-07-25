@@ -7,9 +7,7 @@
                     <i class="fa fa-plus"
                     aria-hidden="true"></i> ajouter
                 </button>
-                @if (session()->get('nom'))
-                    @dump(session()->get('nom'))
-                @endif
+
                 @if (session()->get('mess'))
                     <center>
                         <h2 style="color: #13478d">{{ session()->get('mess') }}</h2>
@@ -30,7 +28,7 @@
 
                                         <button data-toggle="modal" type="button" class="btn btn-warning"
                                             href="#modal-formUP"><i class="fa fa-pencil"></i></button>
-                                        <button type="submit" class="btn btn-danger" id="delete" href=""><i
+                                        <button type="submit" class="btn btn-danger" id="delete" href="{{route('delete.typePage',$item->id)}}"><i
                                                 class="fa fa-trash"></i></button>
                                     </div>
                                     <div class="col-xs-4">
@@ -81,14 +79,7 @@
                                 <small id="helpId" class="text-muted">Help text</small>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-sx-12">
-                            <div class="form-group">
-                                <label for="">status</label>
-                                <input type="text" name="status" id="status" class="form-control" placeholder=""
-                                    aria-describedby="helpId">
-                                <small id="helpId" class="text-muted">Help text</small>
-                            </div>
-                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Save</button>

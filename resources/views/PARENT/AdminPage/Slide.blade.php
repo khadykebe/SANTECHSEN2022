@@ -11,19 +11,28 @@
         <div class="container">
             <div class="row">
                 @if ($slides ?? false)
-                    @foreach ($slides as $slide)
-                        <div class="col-sm-6 col-xs-12">
-                            <div class="card">
-                                <img class="card-img-top" src="Admins/img/p4.jpg" alt="" ><br>
-                                <div class="card-body">
-                                    <h4 class="card-title font-bord"><u>contenue</u> :</h4>{{ $slide->contenue }}
-                                    <h4 class="card-title font-bord"><u>date de creation</u> :</h4>{{ $slide->dateCreation }}
-                                </div><br><br><br>
+                    @foreach ($slides as $item)
+                    <div class="col-lg-4">
+                        <div class="widget style1 navb-bg" style="background-color: #ffffff">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <img src="{{Storage::url($item->image)}}" alt="">
+
+                                    <h4> <u> Contenue</u>:</h4>{{$item->contenue}}
+                                    <h4><u>date creation</u>:</h4>{{$item->dateCreation}}
+                                    <br><br>
+                                    <button data-toggle="modal" type="button" class="btn btn-warning"
+                                        href="#modal-formUP"><i class="fa fa-pencil"></i></button>
+                                    <button type="submit" class="btn btn-danger" id="delete" href="{{route('delete.slide',$item->id)}}"><i
+                                            class="fa fa-trash"></i></button>
+                                </div>
+
                             </div>
                         </div>
+                        <br><br>
+                    </div>
                     @endforeach
                 @endif
-            </div>
         </div>
 
         <!-- Modal -->
@@ -63,7 +72,7 @@
                             <div class="col-sm-6  col-sx-12 ">
                                 <div class="form-group">
                                     <label for="">dateCreation</label>
-                                    <input type="text" name="dateCreation" id="dateCreation" class="form-control"
+                                    <input type="date" name="dateCreation" id="dateCreation" class="form-control"
                                         placeholder="" aria-describedby="helpId">
                                     <small id="helpId" class="text-muted">Help text</small>
                                 </div>

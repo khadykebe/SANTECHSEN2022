@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Slide;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SlideController extends Controller
 {
@@ -17,21 +18,23 @@ class SlideController extends Controller
             'contenue'=>'required',
             'image'=>'required',
             'dateCreation'=>'required',
-            'idUtilisateur'=>'required',
-        ]);;
+            ]);;
 
         $imageName = time().'.'.$request->image->extension();
         $path = $request->file('image')->storeAs('images', $imageName,'public');
         $slide  =new Slide();
         $slide->contenue = $request->contenue;
         $slide->image    = $path ;
-        dd($slide);
         $slide->dateCreation = $request->dateCreation;
-        //$slide->idUtilisateur = session()->get('id_user');
+        $slide->idUtilisateur = 1;
         $slide->save();
+        return redirect('Slide')->with('message','enregistrement reussit');
 
-        return view('PARENT.AdminPage.Slide',compact('slides'))->with('message','enregistrement reussit');
+    }
 
+    public function delete($id){
+        DB::table('slides')->whereId($id)->delete();
+        return redirect('Slide')->with('mess');
     }
 
 }

@@ -36,7 +36,7 @@ Route::get('liste',function(){return view('PARENT.Partenaire.ListePartenaire'); 
 Route::get('demande',function(){return view('PARENT.Service.Demande');});
 Route::get('service',function(){return view('PARENT.Service.service');});
 Route::get('client',function(){return view('PARENT.Service.Client');});
-Route::get('service',function(){return view('PARENT.Parametre.TypeService');});
+Route::get('TypeService',function(){return view('PARENT.Parametre.TypeService');});
 Route::get('TypePage',function(){return view('PARENT.Parametre.TypePage');});
 
 
@@ -75,13 +75,22 @@ Route::get('liste/{id}',[PartenaireController::class,'delete'])->name('partenair
 //route service
 
 Route::get('service',[ServiceController::class,'AllService']);
+Route::post('createServcie',[ServiceController::class,'store'])->name('service.create');
+Route::get('deleteService/{id}',[ServiceController::class,'deleteService'])->name('service.delete');
+
+
+Route::post('newtype',[ServiceController::class,'storetype'])->name('type.create');
+Route::get('delete/{id}',[ServiceController::class,'delete'])->name('type.delete');
+Route::get('TypeService',[ServiceController::class,'allType']);
 
 
 //route  typePage
 Route::get('TypePage',[TypePageController::class,'AllTypepage']);
-Route::post('TypePage',[TypePageController::class,'store'])->name('create.typepage');
+Route::post('newTypePage',[TypePageController::class,'store'])->name('create.typepage');
+Route::get('deletetype/{id}',[TypePageController::class,'destroy'])->name('delete.typePage');
 
 //route slide
 
 Route::get('slide',[SlideController::class,'AllSlide']);
 Route::post('create',[SlideController::class,'store'])->name('create.slide');
+Route::get('deleteSlide/{id}',[SlideController::class,'delete'])->name('delete.slide');

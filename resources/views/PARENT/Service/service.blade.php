@@ -49,10 +49,10 @@
                             <th>id </th>
                             <th>nomService</th>
                             <th>contenue</th>
-                            <th>image</th>
                             <th>cout</th>
                             <th>dateCreation</th>
                             <th>TypeService</th>
+                            <th>image</th>
                             <th>action</th>
                        </tr>
                        </thead>
@@ -63,13 +63,13 @@
                                 <td>{{$service->id}}</td>
                                 <td>{{$service->nomService}}</td>
                                 <td>{{$service->contenue}}</td>
-                                <td>{{$service->image}}</td>
                                 <td>{{$service->cout}}</td>
                                 <td>{{$service->dateCreation}}</td>
-                                <td>{{$service->TypeService}}</td>
+                                <td>{{$service->nomTypeService}}</td>
+                                <td><img src="{{Storage::url($service->image)}}" alt="" style="height: 100px ; width:100px"></td>
                                 <td>
                                     <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
-                                    <button type="submit" class="btn btn-danger" id="delete" href="{{route('client_delete',$client->id)}}"><i class="fa fa-trash"></i></button>
+                                    <button type="submit" class="btn btn-danger" id="delete" href="{{route('service.delete',$service->id)}}"><i class="fa fa-trash"></i></button>
                                     <button type="button" data-toggle="modal"class="btn btn-primary" href="#modal-formchow" ><i class="fa fa-eye" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
@@ -95,31 +95,44 @@
                                            <div class="modal-body">
                                                <div class="row">
                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                   <h3 class="m-t-center-b"><center> formulaire d'ajouter client</center></h3>
-                                                    <form method="post" class="form-validate" action="{{route('client_create')}}" enctype="multipart/form-data">
+                                                   <h3 class="m-t-center-b"><center> formulaire d'ajouter service</center></h3>
+                                                    <form method="post" class="form-validate" action="{{route('service.create')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         @method('POST')
                                                         <div class="row">
                                                             <div class="col-sm-6 col-xs-12">
-                                                                <label>nom <strong style="color:red;">* </strong></label>
-                                                                <input type="text" name="nomclient" id="nomclient" class="form-control"  required="">
+                                                                <label>nomService <strong style="color:red;">* </strong></label>
+                                                                <input type="text" name="nomService" id="nomService" class="form-control"  required="">
                                                             </div>
                                                             <div class="col-sm-6 col-xs-12">
-                                                                <label>prenom <strong style="color:red;">* </strong></label>
-                                                                <input type="text" name="prenomclient" id="prenomclient" class="form-control"  required="">
+                                                                <label>contenue <strong style="color:red;">* </strong></label>
+                                                                <input type="text" name="contenue" id="contenue" class="form-control"  required="">
                                                             </div>
                                                             <div class="col-sm-6 col-xs-12">
-                                                                <label>email <strong style="color:red;">* </strong></label>
-                                                                <input type="email" name="emailClient" id="emailClient" class="form-control"  required="">
+                                                                <label>image <strong style="color:red;">* </strong></label>
+                                                                <input type="file" name="image" id="image" class="form-control"  required="">
                                                             </div>
                                                             <div class="col-sm-6 col-xs-12">
-                                                                <label>password <strong style="color:red;">* </strong></label>
-                                                                <input type="password" name="password" id="password" class="form-control"  required="">
+                                                                <label>cout <strong style="color:red;">* </strong></label>
+                                                                <input type="text" name="cout" id="cout" class="form-control"  required="">
+                                                            </div>
+
+                                                            <div class="col-sm-6 col-xs-12">
+                                                                <label>dateCreation <strong style="color:red;">* </strong></label>
+                                                                <input type="date" name="dateCreation" id="dateCreation" class="form-control"  required="">
+                                                            </div>
+                                                            <div class="col-sm-6 col-xs-12">
+                                                              <label for=""></label>
+                                                              <select class="form-control" name="idTypeService" id="idTypeService">
+                                                                  @foreach ($type as $item)
+                                                                        <option value="{{$item->id}}"  label="{{$item->nomTypeService}}"></option>
+                                                                  @endforeach
+                                                              </select>
                                                             </div>
                                                         </div>
-                                                         </br>
+
                                                         <div class="col-xs-12">
-                                                            <input type="reset"  class="btn btn-default" value=" Annuler"></input>
+                                                            <input type="reset"  class="btn btn-default" value=" Annuler" ></input>
                                                             <button  class="btn btn-primary" name="submit"> valider</button>
                                                         </div>
                                                     </form>

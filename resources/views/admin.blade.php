@@ -93,7 +93,7 @@
                     <li>
                         <a href="#"><i class="fa fa-wheelchair"></i> <span class="nav-label">Parametre</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                             <li class="active"><a href="service">Type service </a></li>
+                             <li class="active"><a href="TypeService">Type service </a></li>
                              <li class="active"><a href="TypePage">type page</a></li>
                         </ul>
                     </li>

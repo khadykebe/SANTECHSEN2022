@@ -222,6 +222,7 @@
                                 </div><br />
                             @endif
 
+                            @if ($utilisateurs  ?? false)
                             <form action="{{ route('utilisateur.update',$utilisateur->id) }}" method="post" class="form-validate"
                                 enctype="multipart/form-data">
                                 <div class="form-group">
@@ -304,6 +305,9 @@
                                 <button type="reset" class="btn btn-secondary">annuler</button>
                                 <button type="submit" class="btn btn-primary">valider</button>
                             </form>
+                            @endif
+
+
                         </div>
                     </div>
                 </div>
