@@ -94,3 +94,8 @@ Route::get('deletetype/{id}',[TypePageController::class,'destroy'])->name('delet
 Route::get('slide',[SlideController::class,'AllSlide']);
 Route::post('create',[SlideController::class,'store'])->name('create.slide');
 Route::get('deleteSlide/{id}',[SlideController::class,'delete'])->name('delete.slide');
+
+//acceuil
+Route::get('/',[SlideController::class,'Slide']);
+
+

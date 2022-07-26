@@ -16,7 +16,7 @@ class ServiceController extends Controller
         $services = DB::table('services')
         ->join('type_services','services.idTypeService','=','type_services.id')
         ->select('*')->get();
-        return view('PARENT.Service.service',compact('services','type'));
+        return view('PARENT.Service.service',compact(session()->put('services',$services),session()->put('type',$type)));
     }
 
     public function store(Request $request){
@@ -45,7 +45,7 @@ class ServiceController extends Controller
     }
 
     public function deleteService($id){
-
+     
         DB::table('services')->whereId($id)->delete();
         return redirect('service');
     }

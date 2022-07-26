@@ -57,8 +57,8 @@
                        </tr>
                        </thead>
                        <tbody>
-                        @if ($services ?? false)
-                            @foreach ($services as $service)
+                        @if (session()->get('services') ?? false)
+                            @foreach (session()->get('services') as $service)
                             <tr>
                                 <td>{{$service->id}}</td>
                                 <td>{{$service->nomService}}</td>
@@ -124,7 +124,7 @@
                                                             <div class="col-sm-6 col-xs-12">
                                                               <label for=""></label>
                                                               <select class="form-control" name="idTypeService" id="idTypeService">
-                                                                  @foreach ($type as $item)
+                                                                  @foreach (session()->get('type') as $item)
                                                                         <option value="{{$item->id}}"  label="{{$item->nomTypeService}}"></option>
                                                                   @endforeach
                                                               </select>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\View\ViewName;
 
 class SlideController extends Controller
 {
@@ -35,6 +36,13 @@ class SlideController extends Controller
     public function delete($id){
         DB::table('slides')->whereId($id)->delete();
         return redirect('Slide')->with('mess');
+    }
+
+
+    public function Slide(){
+        $slide1 = Slide::all()->first();
+        $slide2 = Slide::all()->last();
+        return View('PARENT.Visite.user',compact('slide1','slide2'));
     }
 
 }

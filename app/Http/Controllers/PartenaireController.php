@@ -11,7 +11,7 @@ class PartenaireController extends Controller
     public function AllPartenaire(){
 
         $partenaires = Partenair::all();
-        return view('PARENT.Partenaire.ListePartenaire',compact('partenaires'));
+        return view('PARENT.Partenaire.ListePartenaire',compact(session()->put('partenaires',$partenaires)));
     }
 
     public function store(Request $request){
