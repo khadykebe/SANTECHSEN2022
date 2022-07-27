@@ -188,55 +188,5 @@
         </div>
     </section>
 
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Authentification</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    @if (session()->get('messagelogin'))
-                        <div class="alert alert-danger">
-                            {{ session()->get('messagelogin') }}
-                        </div>
-                    @endif
-                    <form action="{{ route('login') }}" method="POST" class="form-validate">
-                        <div class="form-group">
-                            @csrf
-                            @method('POST')
-                            <div class="row">
-                                <div class="col-sm-6 col-sx-12">
-                                    <label for="">email</label>
-                                    <input type="email" name="email" id="email" class="form-control"
-                                        placeholder="" aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small> <br>
-                                </div>
-
-                                <div class="col-sm-6 col-sx-12">
-                                    <label for="">password</label>
-                                    <input type="password" name="password" id="password" class="form-control"
-                                        placeholder="" aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
-        Launch
-    </button>
 
 @endsection

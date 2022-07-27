@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
-use App\Models\TypePage;
 use App\Models\TypeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+
+
 
 class ServiceController extends Controller
 {
@@ -45,7 +47,7 @@ class ServiceController extends Controller
     }
 
     public function deleteService($id){
-     
+
         DB::table('services')->whereId($id)->delete();
         return redirect('service');
     }

@@ -15,8 +15,8 @@ class TypePage extends Model
         'idUtilisateur',
     ];
 
-    public function services(){
-        return $this->hasOne(Service::class);
+    public function page(){
+        return $this->hasOne(Page::class);
     }
 
     public function utilisateurs(){
@@ -24,4 +24,4 @@ class TypePage extends Model
         return $this->belongsTo(Utilisateur::class);
     }
 
-}   
+}

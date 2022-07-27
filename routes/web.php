@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ServiceController;
@@ -32,6 +34,8 @@ Route::get('contact',function(){return view('PARENT.AdminPage.Contact');});
 Route::get('slide',function(){return view('PARENT.AdminPage.Slide');});
 Route::get('utilisateur',function(){return view('PARENT.ADMINISTRATEUR.utilisateur');});
 Route::get('profil',function(){return view('PARENT.ADMINISTRATEUR.profil');});
+Route::get('page',function(){return view('PARENT.ADMINISTRATEUR.page');});
+Route::get('demande',function(){return view('PARENT.ADMINISTRATEUR.demande');});
 Route::get('liste',function(){return view('PARENT.Partenaire.ListePartenaire'); });
 Route::get('demande',function(){return view('PARENT.Service.Demande');});
 Route::get('service',function(){return view('PARENT.Service.service');});
@@ -89,6 +93,13 @@ Route::get('TypePage',[TypePageController::class,'AllTypepage']);
 Route::post('newTypePage',[TypePageController::class,'store'])->name('create.typepage');
 Route::get('deletetype/{id}',[TypePageController::class,'destroy'])->name('delete.typePage');
 
+//pages
+Route::get('page',[PageController::class,'allPage']);
+Route::post('newPage',[PageController::class,'store'])->name('create.page');
+Route::get('deletePage',[PageController::class,'destroy'])->name('delete.page');
+
+
+
 //route slide
 
 Route::get('slide',[SlideController::class,'AllSlide']);
@@ -97,5 +108,10 @@ Route::get('deleteSlide/{id}',[SlideController::class,'delete'])->name('delete.s
 
 //acceuil
 Route::get('/',[SlideController::class,'Slide']);
+Route::get('user',[ServiceController::class,'AllService']);
+Route::get('user',[PartenaireController::class,'AllPartenaire']);
+
+
+
 
 

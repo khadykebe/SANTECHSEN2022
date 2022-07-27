@@ -73,7 +73,7 @@
                         <li><a class="page-scroll" href="#testimonials">partenaire</a></li>
                         <li><a class="page-scroll" href="#team ">qui somme nous</a></li>
                         <li><a class="page-scroll" href="#contact">Contact</a></li>
-                        <li style="margin-top:3%"><button type="button" class="btn btn-primary lg">connecter</button></li>
+                        <li style="margin-top:3%"><button type="button" class="btn btn-primary btn-lg" href="#modelId" data-toggle="modal">connecter</button></li>
                     </ul>
                 </div>
             </div>
@@ -176,21 +176,18 @@
                     </li>
 
                     <li>
-                        <a class="btn btn-primary btn-xs" href="#">Signup</a>
+                        <a class="btn btn-primary btn-xs"  id="ouvreDemande" >Signup</a>
                     </li>
                 </ul>
             </div>
             @endforeach
 
         </div>
-        <div class="row m-t-lg">
-            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg">
-                <p>*Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. <span class="navy">Various versions</span>  have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-            </div>
-        </div>
-    </div>
+
 
 </section>
+
+
 
 <section id="features" class="container services">
     <div class="row m-b-lg">
@@ -223,13 +220,6 @@
     </div><br><br><br><br><br><br>
 </section>
 
-
-
-
-
-
-
-
 <section id="testimonials"  style="margin-top: 0">
     <div class="container comments gray-section">
         <div class="row">
@@ -239,7 +229,7 @@
             </div>
         </div>
         <div class="row features-block">
-            @foreach ( session()->get('partenaires') as $item )
+            @foreach (session()->get('partenaires') as $item )
             <div class="col-lg-4">
                 <div class="bubble">
                     <p> <u>nomPartenaire</u>: &nbsp;&nbsp; {{$item->nomPartenaire}}</p>
@@ -369,6 +359,51 @@
         </div>
     </div>
 </section>
+
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Authentification</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            @if (session()->get('messagelogin'))
+                <div class="alert alert-danger">
+                    {{ session()->get('messagelogin') }}
+                </div>
+            @endif
+            <form action="{{ route('login') }}" method="POST" class="form-validate">
+                <div class="form-group">
+                    @csrf
+                    @method('POST')
+                    <div class="row">
+                        <div class="col-sm-6 col-sx-12">
+                            <label for="">email</label>
+                            <input type="email" name="email" id="email" class="form-control"
+                                placeholder="" aria-describedby="helpId">
+                            <small id="helpId" class="text-muted">Help text</small> <br>
+                        </div>
+
+                        <div class="col-sm-6 col-sx-12">
+                            <label for="">password</label>
+                            <input type="password" name="password" id="password" class="form-control"
+                                placeholder="" aria-describedby="helpId">
+                            <small id="helpId" class="text-muted">Help text</small>
+                        </div>
+                    </div>
+                </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+</div>
 
 
 <script src="{{asset('Utilisateurs/js/jquery-2.1.1.js')}}"></script>

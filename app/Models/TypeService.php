@@ -17,4 +17,9 @@ class TypeService extends Model
     public function service(){
         return $this->hasOne(Service::class);
     }
+
+    public function utilisateurs(){
+
+        return $this->belongsTo(Utilisateur::class);
+    }
 }

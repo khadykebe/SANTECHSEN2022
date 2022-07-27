@@ -6,6 +6,7 @@ use App\Models\Partenair;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
 class PartenaireController extends Controller
 {
     public function AllPartenaire(){
