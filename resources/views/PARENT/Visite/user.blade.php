@@ -69,8 +69,8 @@
                     <ul class="nav navbar-nav navbar-right" style="margin-top: 5%">
                         <li><a class="page-scroll" href="#page-top">acceuil</a></li>
                         <li><a class="page-scroll" href="#pricing">services</a></li>
-                        <li><a class="page-scroll" href="#features">evenement</a></li>
                         <li><a class="page-scroll" href="#testimonials">partenaire</a></li>
+                        <li><a class="page-scroll" href="#features">evenement</a></li>
                         <li><a class="page-scroll" href="#team ">qui somme nous</a></li>
                         <li><a class="page-scroll" href="#contact">Contact</a></li>
                         <li style="margin-top:3%"><button type="button" class="btn btn-primary btn-lg" href="#modelId" data-toggle="modal">connecter</button></li>
@@ -78,9 +78,7 @@
                 </div>
             </div>
         </nav>
-
 </div>
-
 <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
 
@@ -90,9 +88,7 @@
 
                     <h1>We craft<br/>
                         brands, web apps,<br/>
-                        and user interfaces<br/>
-                        we are IN+ studio</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                        and user interfaces<br/><br>
                     <p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
                     </p>
@@ -115,9 +111,7 @@
 
                     <h1>We craft<br/>
                         brands, web apps,<br/>
-                        and user interfaces<br/>
-                        we are IN+ studio</h1>
-                    <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                        and user interfaces<br/><br>
                     <p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
                     </p>
@@ -143,9 +137,13 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
+</div><br><br><br><br>
+@if ($success ?? false)
+<strong>{{$success}}</strong>
+@endif
 <section id="pricing" class="pricing">
     <div class="container">
+
         <div class="row m-b-lg">
             <div class="col-lg-12 text-center">
                 <div class="navy-line"></div>
@@ -153,9 +151,9 @@
             </div>
         </div>
         <div class="row">
-            @foreach ( session()->get('services') as $item )
+            @foreach ($services as $item )
             <div class="col-sm-4 wow zoomIn">
-                <ul class="pricing-plan list-unstyled ">
+                <ul class="pricing-plan list-unstyled  selected">
                     <li class="pricing-title">
                         {{$item->nomService}}
                     </li>
@@ -176,18 +174,51 @@
                     </li>
 
                     <li>
-                        <a class="btn btn-primary btn-xs"  id="ouvreDemande" >Signup</a>
+                        <a class="btn btn-primary btn-xs"  id="ouvreDemande" href="{{route('serviceById',$item->id)}}">Signup</a>
                     </li>
                 </ul>
             </div>
             @endforeach
 
-        </div>
+        </div><br><br><br><br>
 
 
 </section>
 
 
+
+
+
+<section id="testimonials"  style="margin-top: 0">
+    <div class="container comments gray-section">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Nos partenaires</h1>
+            </div>
+        </div>
+        <div class="row features-block">
+            @foreach ($partenaire as $item )
+            <div class="col-lg-4">
+                <div class="bubble">
+                    <p> <u>nomPartenaire</u>: &nbsp;&nbsp; {{$item->nomPartenaire}}</p>
+                    <p><u>emailPartenaire</u> :&nbsp;&nbsp;{{$item->emailPartenaire}}</p>
+                    <p><u>telephone</u> : &nbsp;&nbsp;{{$item->telephone}}</p>
+                </div>
+                <div class="comments-avatar">
+                    <a href="" class="pull-left">
+                        <img alt="image" src="{{Storage::url($item->logo)}}">
+                    </a>
+
+                </div>
+            </div>
+            @endforeach
+
+
+        </div><br><br>
+    </div>
+
+</section>
 
 <section id="features" class="container services">
     <div class="row m-b-lg">
@@ -218,37 +249,6 @@
             <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
         </div>
     </div><br><br><br><br><br><br>
-</section>
-
-<section id="testimonials"  style="margin-top: 0">
-    <div class="container comments gray-section">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1>Nos partenaire</h1>
-            </div>
-        </div>
-        <div class="row features-block">
-            @foreach (session()->get('partenaires') as $item )
-            <div class="col-lg-4">
-                <div class="bubble">
-                    <p> <u>nomPartenaire</u>: &nbsp;&nbsp; {{$item->nomPartenaire}}</p>
-                    <p><u>emailPartenaire</u> :&nbsp;&nbsp;{{$item->emailPartenaire}}</p>
-                    <p><u>telephone</u> : &nbsp;&nbsp;{{$item->telephone}}</p>
-                </div>
-                <div class="comments-avatar">
-                    <a href="" class="pull-left">
-                        <img alt="image" src="{{Storage::url($item->logo)}}">
-                    </a>
-
-                </div>
-            </div>
-            @endforeach
-
-
-        </div><br><br>
-    </div>
-
 </section>
 
 <section id="team" >

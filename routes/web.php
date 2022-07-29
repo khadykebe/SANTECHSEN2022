@@ -10,6 +10,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\TypePageController;
 use App\Http\Controllers\UtilisateurController;
+use App\Http\Controllers\WelcomController;
 use App\Models\Partenair;
 use App\Models\Utilisateur;
 use Illuminate\Support\Facades\Route;
@@ -35,7 +36,6 @@ Route::get('slide',function(){return view('PARENT.AdminPage.Slide');});
 Route::get('utilisateur',function(){return view('PARENT.ADMINISTRATEUR.utilisateur');});
 Route::get('profil',function(){return view('PARENT.ADMINISTRATEUR.profil');});
 Route::get('page',function(){return view('PARENT.ADMINISTRATEUR.page');});
-Route::get('demande',function(){return view('PARENT.ADMINISTRATEUR.demande');});
 Route::get('liste',function(){return view('PARENT.Partenaire.ListePartenaire'); });
 Route::get('demande',function(){return view('PARENT.Service.Demande');});
 Route::get('service',function(){return view('PARENT.Service.service');});
@@ -66,7 +66,7 @@ Route::get('chow/{id}',[UtilisateurController::class,"chowById"]);
 // route Client
 
 Route::get('client',[ClientController::class,'AllClient']);
-Route::post('Client',[ClientController::class,'store'])->name('client_create');
+Route::post('new',[DemandeController::class,'storeClient'])->name('client_create');
 Route::get('client/{id}',[ClientController::class,'delete'])->name('client_delete');
 
 
@@ -107,9 +107,10 @@ Route::post('create',[SlideController::class,'store'])->name('create.slide');
 Route::get('deleteSlide/{id}',[SlideController::class,'delete'])->name('delete.slide');
 
 //acceuil
-Route::get('/',[SlideController::class,'Slide']);
-Route::get('user',[ServiceController::class,'AllService']);
-Route::get('user',[PartenaireController::class,'AllPartenaire']);
+Route::get('demande',[WelcomController::class,'index']);
+Route::get('service/{id}',[DemandeController::class,'store'])->name('serviceById');
+Route::get('/',[WelcomController::class,'acceuil']);
+
 
 
 

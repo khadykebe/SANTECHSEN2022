@@ -11,10 +11,10 @@ class PageController extends Controller
 {
     public function allPage(){
         $types = TypePage::all();
-        $page = DB::table('pages')
+        $pages = DB::table('pages')
         ->join('type_pages','pages.idTypePage','=','type_pages.id')
         ->select('*')->get();
-        return view('PARENT.ADMINISTRATEUR.page',compact(session()->put('pages',$page),'types'));
+        return view('PARENT.ADMINISTRATEUR.page',compact('pages','types'));
     }
 
     public function store(Request $request){

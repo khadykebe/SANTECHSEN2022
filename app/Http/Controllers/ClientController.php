@@ -18,16 +18,14 @@ class ClientController extends Controller
             'nomclient'=>'required',
             'prenomclient'=>'required|unique:clients,prenomclient',
             'emailClient'=>'required',
-            'password'=>'required|max:8',
         ]);
-        
+
         $client = new Client();
         $client->nomclient = $request->nomclient;
         $client->prenomclient = $request->prenomclient;
         $client->emailClient = $request->emailClient;
-        $client->password = bcrypt($request->password);
         $client->save();
-        return redirect('client')->with('success','client enrégistre avec success');
+        return redirect('/')->with('success','votre demande a été enr"gistrer avec successe');
     }
 
     public function delete($id){

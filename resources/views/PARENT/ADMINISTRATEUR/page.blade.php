@@ -63,8 +63,8 @@
                                                 <td>{{ $item->id }}</td>
                                                 <td>{{ $item->contenue }}</td>
                                                 <td>{{ $item->date }}</td>
-                                                <td>{{ $item->type_page }}</td>
-                                                <td><img src="{{Storage::url($item->image)}}" alt="image"></td>
+                                                <td>{{ $item->nomType }}</td>
+                                                <td><img src="{{Storage::url($item->image)}}" alt="image" style="height:55px; width:60px"></td>
                                                 <td>
                                                     <button data-toggle="modal" type="button" class="btn btn-warning"
                                                         href="#modal-formUP"><i class="fa fa-pencil"></i></button>
@@ -103,7 +103,7 @@
                         </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('create.page')}}" method="post">
+                    <form action="{{route('create.page')}}"  class="form-validate" method="post" enctype="multipart/form-data" >
                         <div class="form-group">
                             @csrf
                             @method('POST')

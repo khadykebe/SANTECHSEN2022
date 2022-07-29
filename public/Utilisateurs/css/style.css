@@ -158,7 +158,7 @@ h1 {
 -------------------------------------------------- */
 /* Carousel base class */
 .carousel {
-  height: 470px;
+  height: 400px;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -166,7 +166,7 @@ h1 {
 }
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 470px;
+  height: 100px;
   background-color: #777;
 }
 .carousel-inner > .item > img {

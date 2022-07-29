@@ -12,7 +12,7 @@ class TypePageController extends Controller
     public function AllTypepage(){
 
         $typepages = Type_page::all();
-        return view('PARENT.Parametre.TypePage',compact(session()->put('typepages',$typepages)));
+        return view('PARENT.Parametre.TypePage',compact('typepages'));
     }
 
     public function store(Request $request){

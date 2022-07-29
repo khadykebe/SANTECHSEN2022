@@ -18,7 +18,8 @@ class ServiceController extends Controller
         $services = DB::table('services')
         ->join('type_services','services.idTypeService','=','type_services.id')
         ->select('*')->get();
-        return view('PARENT.Service.service',compact(session()->put('services',$services),session()->put('type',$type)));
+        $type = TypeService::all();
+        return view('PARENT.Service.service',compact('services','type'));
     }
 
     public function store(Request $request){

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class DemandeService extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'idService',
+        'idClient'
+    ];
 }

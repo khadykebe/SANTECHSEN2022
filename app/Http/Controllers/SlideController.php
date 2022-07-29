@@ -39,10 +39,6 @@ class SlideController extends Controller
     }
 
 
-    public function Slide(){
-        $slide1 = Slide::all()->first();
-        $slide2 = Slide::all()->last();
-        return View('PARENT.Visite.user',compact('slide1','slide2'));
-    }
+    
 
 }

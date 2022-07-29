@@ -61,7 +61,6 @@
                         <ul class="nav nav-second-level">
                              <li class="active"><a href="utilisateur">Utilisateur</a></li>
                              <li class="active"><a href="profil">Profil</a></li>
-                             <li class="active"><a href="demande">Demande</a></li>
                              <li class="active"><a href="page">Page</a></li>
                         </ul>
                     </li>

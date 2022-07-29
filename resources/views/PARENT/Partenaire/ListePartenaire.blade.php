@@ -52,8 +52,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                @if (session()->get('partenaires') ?? false)
-                                    @foreach (session()->get('partenaires') as $partenaire)
+                                @if ($partenaires ?? false)
+                                    @foreach ($partenaires as $partenaire)
                                     <tr>
                                         <td>{{$partenaire->id}}</td>
                                         <td>{{$partenaire->nomPartenaire}}</td>

@@ -57,8 +57,8 @@
                        </tr>
                        </thead>
                        <tbody>
-                        @if (session()->get('services') ?? false)
-                            @foreach (session()->get('services') as $service)
+                        @if ($services ?? false)
+                            @foreach ($services as $service)
                             <tr>
                                 <td>{{$service->id}}</td>
                                 <td>{{$service->nomService}}</td>
@@ -66,7 +66,7 @@
                                 <td>{{$service->cout}}</td>
                                 <td>{{$service->dateCreation}}</td>
                                 <td>{{$service->nomTypeService}}</td>
-                                <td><img src="{{Storage::url($service->image)}}" alt="" style="height: 100px ; width:100px"></td>
+                                <td><img src="{{Storage::url($service->image)}}" alt="" style="height:55px; width:60px"></td>
                                 <td>
                                     <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
                                     <button type="submit" class="btn btn-danger" id="delete" href="{{route('service.delete',$service->id)}}"><i class="fa fa-trash"></i></button>
@@ -124,7 +124,7 @@
                                                             <div class="col-sm-6 col-xs-12">
                                                               <label for=""></label>
                                                               <select class="form-control" name="idTypeService" id="idTypeService">
-                                                                  @foreach (session()->get('type') as $item)
+                                                                  @foreach ($type as $item)
                                                                         <option value="{{$item->id}}"  label="{{$item->nomTypeService}}"></option>
                                                                   @endforeach
                                                               </select>
