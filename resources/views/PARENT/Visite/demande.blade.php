@@ -31,7 +31,6 @@
 </head>
 
 <body id="page-top">
-
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-xs-12">
@@ -99,7 +98,7 @@
             </div>
             <!-- Set background for slide in css -->
             <div class="header-back one" >
-                <img src="../storage/images/1658747388.jpg" alt="" style="height: 300px;width:1920px">
+                <img src="{{ Storage::url($slide1->image) }}" alt="" style="height: 300px;width:1920px">
             </div>
 
         </div>
@@ -120,7 +119,7 @@
             </div>
             <!-- Set background for slide in css -->
             <div class="header-back one">
-                <img src="../storage/images/1658753731.jpg" alt="" style="height: 300px;width:1920px">
+                <img src="{{ Storage::url($slide2->image) }}" alt="" style="height: 300px;width:1920px">
 
             </div>
 
@@ -134,18 +133,17 @@
     <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-    </a>
+    </a><br><br>
     <section id="pricing" class="pricing   gray-section" style="margin-top: 10%">
         <div class="container">
             <div class="row m-b-lg">
-    <marquee><CENTER><strong><h3 style="color: #FF7F00"> Veuillez Remplir les champs suivants pour votre demande</h3></strong></CENTER> </marquee>
-
+                <marquee><CENTER><strong><h3 style="color: #FF7F00"> Veuillez Remplir les champs suivants pour votre demande</h3></strong></CENTER> </marquee>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                         <div class="row">
                             <div class="col-xs-6" >
-                                <img src="{{Storage::url($services->image)}}" alt=""><br><br>
+                                <img src="{{Storage::url($services->image)}}" alt="" style="height: 150px;width:300px"><br><br>
                                 <h4> <u>Nom service</u> : &nbsp;&nbsp;&nbsp;&nbsp;{{$services->nomService}}</h4>
                                 <h4><u>contenue</u>:&nbsp;&nbsp;&nbsp;&nbsp; {{$services->contenue}}</h4>
                                 <h4> <u>cout</u>:&nbsp;&nbsp;&nbsp;&nbsp;{{$services->cout}}</h4>

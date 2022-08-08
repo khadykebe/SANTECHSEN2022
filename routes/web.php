@@ -38,6 +38,7 @@ Route::get('profil',function(){return view('PARENT.ADMINISTRATEUR.profil');});
 Route::get('page',function(){return view('PARENT.ADMINISTRATEUR.page');});
 Route::get('liste',function(){return view('PARENT.Partenaire.ListePartenaire'); });
 Route::get('demande',function(){return view('PARENT.Service.Demande');});
+Route::get('passeDemande',function() {return view('PARENT.Visite.demande');});
 Route::get('service',function(){return view('PARENT.Service.service');});
 Route::get('client',function(){return view('PARENT.Service.Client');});
 Route::get('TypeService',function(){return view('PARENT.Parametre.TypeService');});
@@ -108,7 +109,7 @@ Route::get('deleteSlide/{id}',[SlideController::class,'delete'])->name('delete.s
 
 //acceuil
 Route::get('demande',[WelcomController::class,'index']);
-Route::get('service/{id}',[DemandeController::class,'store'])->name('serviceById');
+Route::get('service/{id}',[DemandeController::class,'serviceById'])->name('serviceById');
 Route::get('/',[WelcomController::class,'acceuil']);
 
 

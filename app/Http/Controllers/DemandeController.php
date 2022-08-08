@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\DemandeService;
 use App\Models\Service;
+use App\Models\Slide;
 use App\Models\TypeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,10 +20,10 @@ class DemandeController extends Controller
 
 
 
-   public function storeClient(Request $request,$id){
+   public function storeClient(Request $request){
     $this->validate($request,[
         'nomclient'=>'required',
-        'prenomclient'=>'required|unique:clients,prenomclient',
+        'prenomclient'=>'required',
         'emailClient'=>'required',
     ]);
 
@@ -31,22 +32,24 @@ class DemandeController extends Controller
     $client->prenomclient = $request->prenomclient;
     $client->emailClient = $request->emailClient;
     $client->save();
-
-    $demande = new DemandeService();
-    $demande->idService = $id;
-    $demande->idClient = session()->get('id');
-    $demande->save();
-
-    session()->put('id',$client->id);
-    return redirect('/')->with('success','votre demande a été enr"gistrer avec successe');
+    return redirect('/')->with('success','votre demande a été enrégistrer avec successe');
 
    }
 
-
-   public function store($id){
-
+   public function storeDemande($id){
+        $client = Client::all()->last();
+        $demande = new DemandeService();
+        $demande->idService = $id;
+        $demande->idClient = $client->id;
+        $demande->save();
+        return redirect('passeDemande');
+   }
+   public function serviceById($id){
+        $slide1 = Slide::all()->first();
+        $slide2 = Slide::all()->last();
         $services = Service::find($id);
-        return view('PARENT.Visite.demande',compact('services'));
+        return view('PARENT.Visite.demande',compact('services','slide1','slide2'));
 
     }
+    
 }

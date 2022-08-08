@@ -19,7 +19,6 @@ class PartenaireController extends Controller
         $this->validate($request ,[
             'nomPartenaire' => 'required',
             'emailPartenaire'=> 'required|unique:partenairs,emailPartenaire',
-            'password'=> 'required',
             'telephone'=> 'required|unique:partenairs,telephone',
             'logo'=> 'required|mimes:jpeg,png,jpg,svg|max:2048',
         ]);
@@ -28,7 +27,6 @@ class PartenaireController extends Controller
         $partenaire = new Partenair();
         $partenaire->nomPartenaire = $request->nomPartenaire;
         $partenaire->emailPartenaire = $request->emailPartenaire;
-        $partenaire->password = bcrypt($request->password);
         $partenaire->telephone = $request->telephone;
         $partenaire->logo = $path;
         $partenaire->save();

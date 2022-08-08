@@ -114,10 +114,7 @@
                                 <label>email <strong style="color:red;">* </strong></label>
                                 <input type="email" name="emailPartenaire" id="emailPartenaire" class="form-control"  required=""><br>
                             </div>
-                            <div class="col-sm-6 col-xs-12">
-                                <label>password <strong style="color:red;">* </strong></label>
-                                <input type="password" name="password" id="password" class="form-control"  required=""><br>
-                            </div>
+                            
                             <div class="col-sm-6 col-xs-12">
                                 <label>téléphone <strong style="color:red;">* </strong></label>
                                 <input type="text" name="telephone" id="telephone" class="form-control"  required=""><br>

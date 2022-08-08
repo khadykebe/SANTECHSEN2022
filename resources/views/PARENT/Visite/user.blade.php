@@ -20,13 +20,8 @@
 
    <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
 
-   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-   <!--[if lt IE 9]>
-   <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-   <![endif]-->
-
-   <!-- Custom styles for this template -->
+   
+   <!-- Custom styles pour this template -->
     <link rel="stylesheet" href="{{asset('Utilisateurs/css/style.css')}}">
 </head>
 <body id="page-top">
@@ -90,7 +85,7 @@
                         brands, web apps,<br/>
                         and user interfaces<br/><br>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
+                        <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a>
                     </p>
                 </div>
                 <!-- <div class="carousel-image wow zoomIn">
@@ -99,7 +94,7 @@
             </div>
             <!-- Set background for slide in css -->
             <div class="header-back one">
-                <img src="../storage/images/1658747388.jpg" alt="" style="height: 500px;width:1920px">
+                <img src="{{ Storage::url($slide1->image) }}" alt="" style="height: 500px;width:1920px">
             </div>
 
         </div>
@@ -113,7 +108,7 @@
                         brands, web apps,<br/>
                         and user interfaces<br/><br>
                     <p>
-                        <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
+                        <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a></a>
                     </p>
                 </div>
                 <!-- <div class="carousel-image wow zoomIn">
@@ -122,7 +117,7 @@
             </div>
             <!-- Set background for slide in css -->
             <div class="header-back one">
-                <img src="../storage/images/1658753731.jpg" alt="" style="height: 500px;width:1920px">
+                <img src="{{ Storage::url($slide2->image) }}" alt="" style="height: 500px;width:1920px">
 
             </div>
 
@@ -158,7 +153,7 @@
                         {{$item->nomService}}
                     </li>
                     <li class="pricing-desc">
-                        <img src="{{Storage::url($item->image)}}" alt="">
+                        <img src="{{Storage::url($item->image)}}" alt="" style="height:100px; width:200px">
                     </li>
                     <li class="pricing-price">
                         {{$item->contenue}}
@@ -174,7 +169,7 @@
                     </li>
 
                     <li>
-                        <a class="btn btn-primary btn-xs"  id="ouvreDemande" href="{{route('serviceById',$item->id)}}">Signup</a>
+                        <a class="btn btn-primary btn-xs"  href="{{route('serviceById',$item->id)}}">Signup</a>
                     </li>
                 </ul>
             </div>
@@ -207,7 +202,7 @@
                 </div>
                 <div class="comments-avatar">
                     <a href="" class="pull-left">
-                        <img alt="image" src="{{Storage::url($item->logo)}}">
+                        <img alt="image" src="{{Storage::url($item->logo)}}" >
                     </a>
 
                 </div>

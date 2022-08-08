@@ -89,7 +89,7 @@
                                                <div class="modal-body">
                                                    <div class="row">
                                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                                       <h3 class="m-t-center-b"><center> formulaire d'ajouter client</center></h3>
+                                                       <h3 class="m-t-center-b"><center> formulaire d ajouter client</center></h3>
                                                         <form method="post" class="form-validate" action="{{route('client_create')}}" enctype="multipart/form-data">
                                                             @csrf
                                                             @method('POST')
