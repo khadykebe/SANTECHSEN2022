@@ -81,9 +81,7 @@
             <div class="container">
                 <div class="carousel-caption">
 
-                    <h1>We craft<br/>
-                        brands, web apps,<br/>
-                        and user interfaces<br/><br>
+                    <h1>{{ $slide1->contenue }}</h1><br/>
                     <p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a>
                     </p>
@@ -94,19 +92,15 @@
             </div>
             <!-- Set background for slide in css -->
             <div class="header-back one">
-                <img src="{{ Storage::url($slide1->image) }}" alt="" style="height: 500px;width:1920px">
+                <img src="{{ Storage::url($slide1->image) }}" alt="" style="height: 500px;width:1707px">
             </div>
-
         </div>
-
-
         <div class="item ">
             <div class="container">
                 <div class="carousel-caption">
 
-                    <h1>We craft<br/>
-                        brands, web apps,<br/>
-                        and user interfaces<br/><br>
+                    <h1>{{ $slide2->contenue }}</h1><br/>
+                      
                     <p>
                         <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a></a>
                     </p>
@@ -117,12 +111,9 @@
             </div>
             <!-- Set background for slide in css -->
             <div class="header-back one">
-                <img src="{{ Storage::url($slide2->image) }}" alt="" style="height: 500px;width:1920px">
-
+                <img src="{{ Storage::url($slide2->image) }}" alt="" style="height: 500px;width:1707px">
             </div>
-
         </div>
-
     </div>
     <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -133,8 +124,10 @@
         <span class="sr-only">Next</span>
     </a>
 </div><br><br><br><br>
-@if ($success ?? false)
-<strong>{{$success}}</strong>
+@if (session()->get('mess'))
+    <center>
+             <h4 style="color: #13478d">{{ session()->get('mess') }}</h4>
+     </center>
 @endif
 <section id="pricing" class="pricing">
     <div class="container">
@@ -145,6 +138,7 @@
                 <h1>Nos Services</h1>
             </div>
         </div>
+
         <div class="row">
             @foreach ($services as $item )
             <div class="col-sm-4 wow zoomIn">
@@ -176,14 +170,7 @@
             @endforeach
 
         </div><br><br><br><br>
-
-
 </section>
-
-
-
-
-
 <section id="testimonials"  style="margin-top: 0">
     <div class="container comments gray-section">
         <div class="row">
@@ -204,17 +191,12 @@
                     <a href="" class="pull-left">
                         <img alt="image" src="{{Storage::url($item->logo)}}" >
                     </a>
-
                 </div>
             </div>
             @endforeach
-
-
         </div><br><br>
     </div>
-
 </section>
-
 <section id="features" class="container services">
     <div class="row m-b-lg">
         <div class="col-lg-12 text-center">
@@ -245,7 +227,6 @@
         </div>
     </div><br><br><br><br><br><br>
 </section>
-
 <section id="team" >
     <div class="container  gray-section team">
         <div class="row m-b-lg">

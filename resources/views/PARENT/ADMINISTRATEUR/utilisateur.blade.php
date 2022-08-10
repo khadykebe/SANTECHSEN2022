@@ -4,7 +4,7 @@
         <div style="text-align: center; ">
             @if (session()->get('success'))
                 <center>
-                    <h2 style="color: #13478d">{{ session()->get('success') }}</h2>
+                    <h4 style="color: #13478d">{{ session()->get('success') }}</h4>
                 </center>
             @endif
         </div>

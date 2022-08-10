@@ -20,9 +20,6 @@
                            <div class="ibox-title">
                                <h5> Listes des <strong style="color: red"> clients </strong></h5>
                                <div class="pull-right m-t-n-xs" >
-                                <a data-toggle="modal" class="btn btn-primary" href="#modal-form"><i class="fa fa-plus"
-                                    aria-hidden="true"></i>
-                                Ajouter</a>
                                    <a class="collapse-link">
                                        <i class="fa fa-chevron-up"></i>
                                    </a>

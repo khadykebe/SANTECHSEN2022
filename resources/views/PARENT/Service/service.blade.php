@@ -66,7 +66,7 @@
                                 <td>{{$service->cout}}</td>
                                 <td>{{$service->dateCreation}}</td>
                                 <td>{{$service->nomTypeService}}</td>
-                                <td><img src="{{Storage::url($service->image)}}" alt="" style="height:55px; width:60px"></td>
+                                <td><img src="{{Storage::url($service->image)}}" alt="" style="height:55px; width:100px"></td>
                                 <td>
                                     <button data-toggle="modal" type="button" class="btn btn-warning" href="#modal-formUP"><i class="fa fa-pencil"></i></button>
                                     <button type="submit" class="btn btn-danger" id="delete" href="{{route('service.delete',$service->id)}}"><i class="fa fa-trash"></i></button>

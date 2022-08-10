@@ -15,4 +15,8 @@ class Client extends Model
         'emailClient',
         'password',
     ];
+
+    public function demande(){
+        return $this->hasOne(DemandeService::class);
+    }
 }

@@ -29,7 +29,6 @@
    <!-- Custom styles for this template -->
     <link rel="stylesheet" href="{{asset('Utilisateurs/css/style.css')}}">
 </head>
-
 <body id="page-top">
     <div class="container">
         <div class="row">
@@ -67,13 +66,12 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse" >
                     <ul class="nav navbar-nav navbar-right" style="margin-top: 5%" >
-                        <li><a class="page-scroll" href="#page-top">acceuil</a></li>
-                        <li><a class="page-scroll" href="#pricing">services</a></li>
-                        <li><a class="page-scroll" href="#testimonials">partenaire</a></li>
-                        <li><a class="page-scroll" href="#features">evenement</a></li>
-                        <li><a class="page-scroll" href="#team ">qui somme nous</a></li>
-                        <li><a class="page-scroll" href="#contact">Contact</a></li>
-                        <li style="margin-top:3%"><button type="button" class="btn btn-primary btn-lg" href="#modelId" data-toggle="modal">connecter</button></li>
+                        <li><a class="page-scroll" href="/">acceuil</a></li>
+                        <li><a class="page-scroll" href="/">services</a></li>
+                        <li><a class="page-scroll" href="/">partenaire</a></li>
+                        <li><a class="page-scroll" href="/">evenement</a></li>
+                        <li><a class="page-scroll" href="/">qui somme nous</a></li>
+                        <li><a class="page-scroll" href="/">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -86,11 +84,10 @@
         <div class="item active">
             <div class="container">
                 <div class="carousel-caption">
-
-                    <h1>We craft<br/>
-                        brands, web apps,<br/>
-                        and user interfaces<br/><br>
-
+                    <h1>{{ $slide1->contenue }}</h1> <br/>
+                     <p>
+                        <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a></a>
+                    </p>
                 </div>
                 <!-- <div class="carousel-image wow zoomIn">
                     <img src="img/laptop.png" alt="laptop"/>
@@ -100,18 +97,14 @@
             <div class="header-back one" >
                 <img src="{{ Storage::url($slide1->image) }}" alt="" style="height: 300px;width:1920px">
             </div>
-
         </div>
-
-
         <div class="item ">
             <div class="container">
                 <div class="carousel-caption">
-
-                    <h1>We craft<br/>
-                        brands, web apps,<br/>
-                        and user interfaces<br/><br>
-
+                    <h1>{{ $slide2->contenue }}</h1> <br/>
+                     <p>
+                        <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a></a>
+                    </p>
                 </div>
                 <!-- <div class="carousel-image wow zoomIn">
                     <img src="img/laptop.png" alt="laptop"/>
@@ -120,11 +113,8 @@
             <!-- Set background for slide in css -->
             <div class="header-back one">
                 <img src="{{ Storage::url($slide2->image) }}" alt="" style="height: 300px;width:1920px">
-
             </div>
-
         </div>
-
     </div>
     <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
         <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -133,50 +123,45 @@
     <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
-    </a><br><br>
-    <section id="pricing" class="pricing   gray-section" style="margin-top: 10%">
+    </a>
+    <section id="pricing" class="pricing  " style="margin-top: 15%">
         <div class="container">
             <div class="row m-b-lg">
                 <marquee><CENTER><strong><h3 style="color: #FF7F00"> Veuillez Remplir les champs suivants pour votre demande</h3></strong></CENTER> </marquee>
             </div>
+            @if(session()->get('message'))
+                <center><h1>cliquer sur <a  class="btn btn-primary" href="{{ route('demande_create',$services->id) }}"role="button">enregistrer </a> pour finaliser votre demande</h1> </center>
+            @endif
             <div class="row">
-                <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-xs-6" >
-                                <img src="{{Storage::url($services->image)}}" alt="" style="height: 150px;width:300px"><br><br>
-                                <h4> <u>Nom service</u> : &nbsp;&nbsp;&nbsp;&nbsp;{{$services->nomService}}</h4>
-                                <h4><u>contenue</u>:&nbsp;&nbsp;&nbsp;&nbsp; {{$services->contenue}}</h4>
-                                <h4> <u>cout</u>:&nbsp;&nbsp;&nbsp;&nbsp;{{$services->cout}}</h4>
-                                <h4><u>date creation</u>: &nbsp;&nbsp;&nbsp;&nbsp;{{$services->dateCreation}}</h4>
-                            </div>
-
-                        </div>
-                    <br><br>
-                </div>
-                <div class="col-sm-5">
-                    <center><h2> <u>formulaire de demande</u> </h2></center><br><br>
+            
+                     <h2 > <u>formulaire de demande</u> </h2> <br>
                     <form action="{{route('client_create')}}" method="post">
                         @csrf
                         @method('POST')
                         <div class="form-group">
-                          <label for="">Nom</label>
-                          <input type="text" name="nomclient" id="nomclient" class="form-control" placeholder="nom" aria-describedby="helpId"><br>
-
-                          <label for="">Prenom</label>
-                          <input type="text" name="prenomclient" id="prenomclient" class="form-control" placeholder="prenom" aria-describedby="helpId"><br>
-
-                          <label for="">Adresse Email</label>
-                          <input type="email" name="emailClient" id="emailClient" class="form-control" placeholder="email" aria-describedby="helpId"><br>
-                        </div>
-                       <div style="text-align: end">
-                        <button type="button" href="/" class="btn btn-secondary btn-lg">Annuler</button>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                            <div class="col-sm-4">
+                                <label for="">Nom</label>
+                                <input type="text" name="nomclient" id="nomclient" class="form-control" placeholder="nom" aria-describedby="helpId"><br>
+                            </div>
+                          <div class="col-sm-4">
+                              <label for="">Prenom</label>
+                              <input type="text" name="prenomclient" id="prenomclient" class="form-control" placeholder="prenom" aria-describedby="helpId"><br>
+                          </div>
+                          <div class="col-sm-8">
+                             <label for="">Adresse Email</label>
+                            <input type="email" name="emailClient" id="emailClient" class="form-control" placeholder="email" aria-describedby="helpId"><br>
+                            <div style="text-align: end">
+                            <button type="button" href="/" class="btn btn-secondary btn-lg">Annuler</button>
+                            <button type="submit" class="btn btn-primary">Envoyer</button>
                        </div>
+                          </div>
+                        </div>
+                       
                     </form>
 
-                </div>
+         
 
-            </div><br><br><br><br>
+            </div><br>
 
 
     </section>

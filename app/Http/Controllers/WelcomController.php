@@ -14,15 +14,11 @@ class WelcomController extends Controller
     public function   index(){
         return view('PARENT.Visite.demande');
     }
-
-
-
+    
     public function acceuil(){
         $slide1 = Slide::all()->first();
         $slide2 = Slide::all()->last();
-
         $partenaire = Partenair::all();
-
         $services = DB::table('type_services')
         ->join('services','services.idTypeService','=','type_services.id')
         ->select('*')->get();

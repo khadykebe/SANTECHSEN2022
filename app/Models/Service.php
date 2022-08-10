@@ -26,4 +26,10 @@ class Service extends Model
     public function utilisateure(){
         return $this->belongsTo(Utilisateur::class);
     }
+
+    public function demande(){
+        return $this->hasOne(DemandeService::class);
+    }
+
+    
 }

@@ -37,8 +37,8 @@ Route::get('utilisateur',function(){return view('PARENT.ADMINISTRATEUR.utilisate
 Route::get('profil',function(){return view('PARENT.ADMINISTRATEUR.profil');});
 Route::get('page',function(){return view('PARENT.ADMINISTRATEUR.page');});
 Route::get('liste',function(){return view('PARENT.Partenaire.ListePartenaire'); });
-Route::get('demande',function(){return view('PARENT.Service.Demande');});
-Route::get('passeDemande',function() {return view('PARENT.Visite.demande');});
+Route::get('Demande',function(){return view('PARENT.Service.Demande');});
+Route::get('demande',function() {return view('PARENT.Visite.demande');});
 Route::get('service',function(){return view('PARENT.Service.service');});
 Route::get('client',function(){return view('PARENT.Service.Client');});
 Route::get('TypeService',function(){return view('PARENT.Parametre.TypeService');});
@@ -67,7 +67,7 @@ Route::get('chow/{id}',[UtilisateurController::class,"chowById"]);
 // route Client
 
 Route::get('client',[ClientController::class,'AllClient']);
-Route::post('new',[DemandeController::class,'storeClient'])->name('client_create');
+Route::post('demande',[DemandeController::class,'storeClient'])->name('client_create');
 Route::get('client/{id}',[ClientController::class,'delete'])->name('client_delete');
 
 
@@ -109,11 +109,12 @@ Route::get('deleteSlide/{id}',[SlideController::class,'delete'])->name('delete.s
 
 //acceuil
 Route::get('demande',[WelcomController::class,'index']);
-Route::get('service/{id}',[DemandeController::class,'serviceById'])->name('serviceById');
 Route::get('/',[WelcomController::class,'acceuil']);
 
+// demande 
 
-
+Route::get('service/{id}',[DemandeController::class,'serviceById'])->name('serviceById');
+Route::get('new/{id}',[DemandeController::class,'storeDemande'])->name('demande_create');
 
 
 
