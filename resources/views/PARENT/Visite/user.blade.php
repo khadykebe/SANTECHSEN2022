@@ -76,7 +76,6 @@
 </div>
 <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
-
         <div class="item active">
             <div class="container">
                 <div class="carousel-caption">
@@ -124,21 +123,22 @@
         <span class="sr-only">Next</span>
     </a>
 </div><br><br><br><br>
-@if (session()->get('mess'))
-    <center>
-             <h4 style="color: #13478d">{{ session()->get('mess') }}</h4>
-     </center>
-@endif
+
+
 <section id="pricing" class="pricing">
     <div class="container">
 
-        <div class="row m-b-lg">
+        <div class="row m-b-lg">    
             <div class="col-lg-12 text-center">
                 <div class="navy-line"></div>
                 <h1>Nos Services</h1>
             </div>
         </div>
-
+@if (session()->get('mess'))
+    <center>
+         <h4 style="color: #13478d">{{ session()->get('mess') }}</h4>
+     </center>
+@endif  
         <div class="row">
             @foreach ($services as $item )
             <div class="col-sm-4 wow zoomIn">
@@ -349,7 +349,7 @@ aria-hidden="true">
         <div class="modal-body">
             @if (session()->get('messagelogin'))
                 <div class="alert alert-danger">
-                    {{ session()->get('messagelogin') }}
+                    {{session()->get('messagelogin') }}
                 </div>
             @endif
             <form action="{{ route('login') }}" method="POST" class="form-validate">

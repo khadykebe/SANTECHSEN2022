@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\DemandeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\mailController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PartenaireController;
 use App\Http\Controllers\ProfilController;
@@ -114,7 +115,9 @@ Route::get('/',[WelcomController::class,'acceuil']);
 // demande 
 
 Route::get('service/{id}',[DemandeController::class,'serviceById'])->name('serviceById');
-Route::get('new/{id}',[DemandeController::class,'storeDemande'])->name('demande_create');
+Route::post('new/{id}',[DemandeController::class,'storeDemande'])->name('demande_create');
+
+Route::get('send_mail',[mailController::class,'sendmail']);
 
 
 

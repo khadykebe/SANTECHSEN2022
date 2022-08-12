@@ -13,7 +13,7 @@ class Client extends Model
         'nomclient',
         'prenomclient',
         'emailClient',
-        'password',
+        'codeValidation',
     ];
 
     public function demande(){
