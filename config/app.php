@@ -133,12 +133,18 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+    'aliases' => [
+        // ...,
+        // Façade DomPDF
+        "PDF" => Barryvdh\DomPDF\Facade::class
+    ],
 
     'providers' => [
 
         /*
          * Laravel Framework Service Providers...
          */
+        Barryvdh\DomPDF\ServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,

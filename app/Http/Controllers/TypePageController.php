@@ -25,7 +25,7 @@ class TypePageController extends Controller
             $typepage->nomType = $request->nomType;
             $typepage->dateCreation = $request->dateCreation;
             $typepage->status = 1;
-            $typepage->idUtilisateur = 1;
+            $typepage->idUtilisateur = 2;
             $typepage->save();
             return redirect('TypePage')->with('mess','ajout reussit');
 

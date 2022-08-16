@@ -27,7 +27,7 @@ class SlideController extends Controller
         $slide->contenue = $request->contenue;
         $slide->image    = $path ;
         $slide->dateCreation = $request->dateCreation;
-        $slide->idUtilisateur = 1;
+        $slide->idUtilisateur = 2;
         $slide->save();
         return redirect('Slide')->with('message','enregistrement reussit');
 

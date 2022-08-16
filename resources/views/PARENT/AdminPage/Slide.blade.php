@@ -16,7 +16,7 @@
                         <div class="widget style1 navb-bg" style="background-color: #ffffff">
                             <div class="row">
                                 <div class="col-xs-6">
-                                    <img src="{{Storage::url($item->image)}}" alt="">
+                                    <img src="{{Storage::url($item->image)}}" alt="" style="heigth:150px ; width:300px">
 
                                     <h4> <u> Contenue</u>:</h4>{{$item->contenue}}
                                     <h4><u>date creation</u>:</h4>{{$item->dateCreation}}

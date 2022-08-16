@@ -19,6 +19,7 @@ class ServiceController extends Controller
         ->join('type_services','services.idTypeService','=','type_services.id')
         ->select('*')->get();
         $type = TypeService::all();
+        dd($type);
         return view('PARENT.Service.service',compact('services','type'));
     }
 
@@ -42,7 +43,7 @@ class ServiceController extends Controller
         $service->dateCreation = $request->dateCreation;
         $service->status = 1;
         $service->idTypeService = $request->idTypeService;
-        $service->idUtilisateur = 1;
+        $service->idUtilisateur = 2;
         $service->save();
         return redirect('service');
     }

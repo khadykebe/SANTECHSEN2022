@@ -105,7 +105,7 @@
                 <div class="container">
                     <div class="carousel-caption">
                         <h1>{{ $slide2->contenue }}</h1> <br />
-                        <p> 
+                        <p>
                             <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a></a>
                         </p>
                     </div>
@@ -138,10 +138,15 @@
                             </strong></CENTER>
                     </marquee>
                 </div>
-                @if(session()->get('message'))
+                @if(session()->get('message') || session()->get('mess'))
                 <div class="row ">
                     <div class="col-sm-3 "></div>
                     <div class="col-sm-5 text-center p-2">
+                        @if (session()->get('mess'))
+                        <div class="alert alert-secondary">
+                            {{session()->get('mess') }}
+                        </div>
+                        @endif
                         <div class="navy-line"></div>
                         <form action="{{ route('demande_create',$services->id) }}" method="post">
                             @csrf

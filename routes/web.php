@@ -116,6 +116,9 @@ Route::get('/',[WelcomController::class,'acceuil']);
 
 Route::get('service/{id}',[DemandeController::class,'serviceById'])->name('serviceById');
 Route::post('new/{id}',[DemandeController::class,'storeDemande'])->name('demande_create');
+Route::get('admin',[DemandeController::class,'AllDemande']);
+Route::get('Demande',[DemandeController::class,'DemandeClient']);
+Route::get('delet/{id}',[DemandeController::class,'deleteDemande'])->name('delete.demande');
 
 Route::get('send_mail',[mailController::class,'sendmail']);
 

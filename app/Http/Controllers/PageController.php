@@ -32,7 +32,7 @@ class PageController extends Controller
         $page->image = $path;
         $page->date = $request->date;
         $page->idTypePage = $request->idTypePage;
-        $page->idUtilisateur = 1;
+        $page->idUtilisateur = 2;
         $page->save();
         return redirect('page');
     }
