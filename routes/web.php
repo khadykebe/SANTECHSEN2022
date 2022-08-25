@@ -48,7 +48,8 @@ Route::get('TypePage',function(){return view('PARENT.Parametre.TypePage');});
 //login utilisateur
 Route::post('admin',[LoginController::class,'login'])->name('login');
 Route::post('forgetPassword',[LoginController::class,'forgetPassword'])->name('password.create');
-
+Route::post('ConfirmeCode',[LoginController::class,'confirmationCode'])->name('code.confirm');
+Route::post('changePassword',[LoginController::class,'changementPasword'])->name('changer.pass');
 // route crud profil
 
 Route::get("profil",[ProfilController::class,"allProfil"]);

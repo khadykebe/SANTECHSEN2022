@@ -48,7 +48,6 @@
             </div>
         </div>
     </div>
-
     <div class="navbar-wrapper">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
@@ -74,6 +73,7 @@
             </div>
         </nav>
     </div>
+    
     <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
         <div class="carousel-inner" role="listbox">
             <div class="item active">
@@ -87,6 +87,7 @@
                     </div>
                     <!-- <div class="carousel-image wow zoomIn">
                     <img src="img/laptop.png" alt="laptop"/>
+
                 </div>-->
                 </div>
                 <!-- Set background for slide in css -->
@@ -111,6 +112,7 @@
                     <img src="{{ Storage::url($slide2->image) }}" alt="" style="height: 500px;width:1707px">
                 </div>
             </div>
+
         </div>
         <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -120,6 +122,7 @@
             <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
+
     </div><br><br><br><br>
 
 
