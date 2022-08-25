@@ -28,7 +28,6 @@ use Illuminate\Support\Facades\Route;
 */
 
  // route page admin
-
 Route::get('/',function(){return view('PARENT.Visite.user');});
 Route::get('admin', function () {return view('PARENT.AdminPage.Accueil');});
 Route::get('QuiSommeNous',function(){return view('PARENT.AdminPage.QuiSommeNous');});
@@ -46,8 +45,9 @@ Route::get('TypeService',function(){return view('PARENT.Parametre.TypeService');
 Route::get('TypePage',function(){return view('PARENT.Parametre.TypePage');});
 
 
-//loin utilisateur
+//login utilisateur
 Route::post('admin',[LoginController::class,'login'])->name('login');
+Route::post('forgetPassword',[LoginController::class,'forgetPassword'])->name('password.create');
 
 // route crud profil
 
@@ -105,7 +105,7 @@ Route::get('deletePage',[PageController::class,'destroy'])->name('delete.page');
 //route slide
 
 Route::get('slide',[SlideController::class,'AllSlide']);
-Route::post('create',[SlideController::class,'store'])->name('create.slide');
+Route::post('slide',[SlideController::class,'store'])->name('create.slide');
 Route::get('deleteSlide/{id}',[SlideController::class,'delete'])->name('delete.slide');
 
 //acceuil

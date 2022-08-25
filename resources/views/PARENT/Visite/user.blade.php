@@ -68,7 +68,7 @@
                         <li><a class="page-scroll" href="#features">evenement</a></li>
                         <li><a class="page-scroll" href="#team ">qui somme nous</a></li>
                         <li><a class="page-scroll" href="#contact">Contact</a></li>
-                        <li style="margin-top:3%"><button type="button" class="btn btn-primary btn-lg" href="#modelId" data-toggle="modal">connecter</button></li>
+                        <li style="margin-top:3%"><button type="button" class="btn btn-primary " href="#modelId" data-toggle="modal">connecter</button></li>
                     </ul>
                 </div>
             </div>
@@ -355,18 +355,19 @@
                         <div class="form-group">
                             @csrf
                             @method('POST')
-                            <div class="row">
-                                <div class="col-sm-6 col-sx-12">
+                            <div class="row ">
+                                <div class="col-sm-12">
                                     <label for="">email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small> <br>
+                                    <input type="email" name="email" id="email" class="form-control" placeholder="Exemple@gmail.com" aria-describedby="helpId"><br>
                                 </div>
 
-                                <div class="col-sm-6 col-sx-12">
+                                <div class="col-sm-12">
                                     <label for="">password</label>
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
-                                    <small id="helpId" class="text-muted">Help text</small>
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="mot de passe" aria-describedby="helpId"><br>
                                 </div>
+                                  <div class="col-sm-12 col-sx-12 text-center">
+                                         <a type="button" href="#my-modal" data-toggle="modal"><u>mot de passe oublier</u> </a>
+                                  </div>  
                             </div>
                         </div>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -377,7 +378,21 @@
             </div>
         </div>
     </div>
-
+    <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <form action="{{ route('password.create') }}" method="post">
+                    @csrf
+                    @method('POST')
+                        <label for="">votre adresse email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="exemple@gmail.com" aria-describedby="helpId"><br>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="{{asset('Utilisateurs/js/jquery-2.1.1.js')}}"></script>
     <script src="{{asset('Utilisateurs/js/pace.min.js')}}"></script>

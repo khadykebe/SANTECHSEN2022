@@ -7,6 +7,7 @@ use App\Models\Service;
 use App\Models\Slide;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class WelcomController extends Controller
 {
@@ -24,6 +25,28 @@ class WelcomController extends Controller
         ->select('*')->get();
         return View('PARENT.Visite.user',compact('slide1','slide2','services','partenaire'));
     }
+    public function generatePDF()
+
+    {
+
+        $data = [
+
+            'title' => 'Welcome to ItSolutionStuff.com',
+
+            'date' => date('m/d/Y')
+
+        ];
+
+          
+
+        $pdf = PDF::loadView('welcome', $data);
+
+    
+
+        return $pdf->download('itsolutionstuff.pdf');
+
+    }
+
 
 
 }

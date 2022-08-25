@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DemandeService;
 use App\Models\Service;
 use App\Models\TypeService;
 use Illuminate\Http\Request;
@@ -15,11 +16,10 @@ class ServiceController extends Controller
     public function AllService(){
         $type = TypeService::all();
 
-        $services = DB::table('services')
-        ->join('type_services','services.idTypeService','=','type_services.id')
+        $services = DB::table('type_services')
+        ->join('services','services.idTypeService','=','type_services.id')
         ->select('*')->get();
         $type = TypeService::all();
-        dd($type);
         return view('PARENT.Service.service',compact('services','type'));
     }
 
@@ -43,15 +43,29 @@ class ServiceController extends Controller
         $service->dateCreation = $request->dateCreation;
         $service->status = 1;
         $service->idTypeService = $request->idTypeService;
-        $service->idUtilisateur = 2;
+        $service->idUtilisateur = session()->get('id-user');
         $service->save();
-        return redirect('service');
+        return redirect('service')->with('success','service ajouter avec successe');
     }
 
     public function deleteService($id){
 
-        DB::table('services')->whereId($id)->delete();
-        return redirect('service');
+        $ser = Service::whereId($id)->first();
+        if(session()->get('id-user') ==  $ser->idUtilisateur)
+        {
+            $demande = DemandeService::where('idService',$ser->id)->first();
+            if($demande)  
+
+                 return redirect('service')->with('mess',"Certains services sont liés à des demande . Supprime les demande avant de supprimer la servcie.");
+                 
+            else{
+
+                $ser->delete();
+                return redirect('service')->with('messd','suppression reussit');
+            }
+        }
+        return redirect('service')->with('mess','vous n avait le doit de supprimer ce servive');
+        
     }
 
 

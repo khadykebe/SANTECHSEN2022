@@ -32,13 +32,13 @@ class PageController extends Controller
         $page->image = $path;
         $page->date = $request->date;
         $page->idTypePage = $request->idTypePage;
-        $page->idUtilisateur = 2;
+        $page->idUtilisateur = session()->get('id-user');
         $page->save();
         return redirect('page');
     }
 
     public function destroy($id){
-        DB::table('pages')::whereId($id)->delete();
+        DB::table('pages')->whereId($id)->delete();
         return redirect('page');
     }
 

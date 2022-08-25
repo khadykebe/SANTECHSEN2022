@@ -17,4 +17,6 @@ class mailController extends Controller
         Mail::to("khadykebe1195@gmail.com")->send(new SendMail($detail));
         return "Email email";
     }
+
+   
 }

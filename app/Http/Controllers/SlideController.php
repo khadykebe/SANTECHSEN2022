@@ -27,15 +27,15 @@ class SlideController extends Controller
         $slide->contenue = $request->contenue;
         $slide->image    = $path ;
         $slide->dateCreation = $request->dateCreation;
-        $slide->idUtilisateur = 2;
+        $slide->idUtilisateur = session()->get('id-user');
         $slide->save();
-        return redirect('Slide')->with('message','enregistrement reussit');
+        return redirect('slide')->with('message','enregistrement reussit');
 
     }
 
     public function delete($id){
         DB::table('slides')->whereId($id)->delete();
-        return redirect('Slide')->with('mess');
+        return redirect('slide')->with('mess');
     }
 
 
