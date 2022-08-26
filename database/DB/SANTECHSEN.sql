@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : ven. 12 août 2022 à 15:22
+-- Généré le : ven. 26 août 2022 à 16:53
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.1.1
 
@@ -42,7 +42,7 @@ CREATE TABLE `clients` (
 --
 
 INSERT INTO `clients` (`id`, `nomclient`, `prenomclient`, `emailClient`, `created_at`, `updated_at`, `codeValidation`) VALUES
-(110, 'kebe', 'khady', 'khadykebe1195@gmail.com', '2022-08-12 12:45:02', '2022-08-12 12:45:02', 834660);
+(5, 'kebe', 'khady', 'khady.kebe@univ-thies.sn', '2022-08-16 14:01:20', '2022-08-16 14:01:20', 3474);
 
 -- --------------------------------------------------------
 
@@ -63,7 +63,7 @@ CREATE TABLE `demande_services` (
 --
 
 INSERT INTO `demande_services` (`id`, `idService`, `idClient`, `created_at`, `updated_at`) VALUES
-(9, 1, 110, '2022-08-12 12:45:58', '2022-08-12 12:45:58');
+(4, 3, 5, '2022-08-16 14:01:36', '2022-08-16 14:01:36');
 
 -- --------------------------------------------------------
 
@@ -115,21 +115,21 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(16, '2014_10_12_000000_create_users_table', 1),
-(17, '2014_10_12_100000_create_password_resets_table', 1),
-(18, '2019_08_19_000000_create_failed_jobs_table', 1),
-(19, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(20, '2022_07_04_104945_create_clients_table', 1),
-(21, '2022_07_04_105050_create_partenairs_table', 1),
-(22, '2022_07_04_105112_create_type_services_table', 1),
-(23, '2022_07_04_105140_create_evenements_table', 1),
-(24, '2022_07_04_112640_create_profils_table', 1),
-(25, '2022_07_04_112707_create_utilisateurs_table', 1),
-(26, '2022_07_04_112725_create_services_table', 1),
-(27, '2022_07_04_112919_create_demande_services_table', 1),
-(28, '2022_07_04_114714_create_type_pages_table', 1),
-(29, '2022_07_04_114749_create_pages_table', 1),
-(30, '2022_07_04_115454_create_slides_table', 1);
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2022_07_04_104945_create_clients_table', 1),
+(6, '2022_07_04_105050_create_partenairs_table', 1),
+(7, '2022_07_04_105112_create_type_services_table', 1),
+(8, '2022_07_04_105140_create_evenements_table', 1),
+(9, '2022_07_04_112640_create_profils_table', 1),
+(10, '2022_07_04_112707_create_utilisateurs_table', 1),
+(11, '2022_07_04_112725_create_services_table', 1),
+(12, '2022_07_04_112919_create_demande_services_table', 1),
+(13, '2022_07_04_114714_create_type_pages_table', 1),
+(14, '2022_07_04_114749_create_pages_table', 1),
+(15, '2022_07_04_115454_create_slides_table', 1);
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,7 @@ CREATE TABLE `pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `contenue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `date` date NOT NULL,
+  `date` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `idTypePage` bigint(20) UNSIGNED DEFAULT NULL,
   `idUtilisateur` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -153,9 +153,8 @@ CREATE TABLE `pages` (
 --
 
 INSERT INTO `pages` (`id`, `contenue`, `image`, `date`, `idTypePage`, `idUtilisateur`, `created_at`, `updated_at`) VALUES
-(1, 'continue 1', 'images/1659877401.jpg', '2022-08-07', 3, 1, '2022-08-07 13:03:21', '2022-08-07 13:03:21'),
-(2, 'continue 2', 'images/1659877429.jpg', '2022-08-07', 4, 1, '2022-08-07 13:03:49', '2022-08-07 13:03:49'),
-(3, 'continue 3', 'images/1659877455.jpg', '2022-08-07', 5, 1, '2022-08-07 13:04:15', '2022-08-07 13:04:15');
+(2, 'contenue page 1', 'images/1660655140.jpg', '2022-08-16', 4, 2, '2022-08-16 13:05:40', '2022-08-16 13:05:40'),
+(3, 'contenue page 2', 'images/1660655169.jpg', '2022-08-16', 3, 2, '2022-08-16 13:06:09', '2022-08-16 13:06:09');
 
 -- --------------------------------------------------------
 
@@ -178,9 +177,9 @@ CREATE TABLE `partenairs` (
 --
 
 INSERT INTO `partenairs` (`id`, `nomPartenaire`, `emailPartenaire`, `telephone`, `logo`, `created_at`, `updated_at`) VALUES
-(2, 'khady kebee', 'khady@gmail.com', '78 965 87', 'images/1659876379.jpg', '2022-08-07 12:46:19', '2022-08-07 12:46:19'),
-(3, 'bamba diaw', 'bamba@gmail.com', '78 965 98 85', 'images/1659876790.jpg', '2022-08-07 12:53:10', '2022-08-07 12:53:10'),
-(4, 'Mor Diaw', 'diawlemor97@gmail.com', '781879981', 'images/1659904321.jpg', '2022-08-07 20:32:01', '2022-08-07 20:32:01');
+(1, 'khady kebe', 'khady@gmail.com', '78 965 32 65', 'images/1660655713.jpg', '2022-08-16 13:15:13', '2022-08-16 13:15:13'),
+(2, 'bamba diaw', 'diaw@gmail.com', '781879983', 'images/1660655750.jpg', '2022-08-16 13:15:50', '2022-08-16 13:15:50'),
+(3, 'khady kebe', 'kebe@gmail.com', '7818799866', 'images/1660656291.jpg', '2022-08-16 13:24:51', '2022-08-16 13:24:51');
 
 -- --------------------------------------------------------
 
@@ -230,9 +229,8 @@ CREATE TABLE `profils` (
 --
 
 INSERT INTO `profils` (`id`, `nomprofil`, `created_at`, `updated_at`) VALUES
-(2, 'admin', '2022-07-08 17:59:25', '2022-07-08 17:59:25'),
-(3, 'supperAdmin', '2022-07-08 17:59:37', '2022-07-08 17:59:37'),
-(4, 'client', '2022-07-08 18:00:13', '2022-07-08 18:00:13');
+(1, 'admin', NULL, NULL),
+(2, 'superAdmin', '2022-08-16 12:58:27', '2022-08-16 12:58:27');
 
 -- --------------------------------------------------------
 
@@ -246,7 +244,7 @@ CREATE TABLE `services` (
   `contenue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cout` bigint(20) UNSIGNED NOT NULL,
-  `dateCreation` date NOT NULL,
+  `dateCreation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   `idTypeService` bigint(20) UNSIGNED DEFAULT NULL,
   `idUtilisateur` bigint(20) UNSIGNED DEFAULT NULL,
@@ -259,9 +257,9 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`id`, `nomService`, `contenue`, `image`, `cout`, `dateCreation`, `status`, `idTypeService`, `idUtilisateur`, `updated_at`, `created_at`) VALUES
-(1, 'nom service 1', 'contenue service 1', 'images/1659877775.jpg', 1365, '2022-08-07', 1, 1, 1, '2022-08-07', '2022-08-07'),
-(2, 'nom service 2', 'contenue service 2', 'images/1659877828.jpg', 123654, '2022-08-07', 1, 2, 1, '2022-08-07', '2022-08-07'),
-(3, 'nom service 3', 'contenue service 3', 'images/1659877875.jpg', 123654, '2022-08-07', 1, 3, 1, '2022-08-07', '2022-08-07');
+(3, 'service 3', 'contenue service 2', 'images/1660655507.jpg', 12365, '2022-08-16', 1, 3, 2, '2022-08-16', '2022-08-16'),
+(4, 'service 4', 'contenue service 4', 'images/1661169529.jpg', 11444, '2022-08-22', 1, 3, 3, '2022-08-22', '2022-08-22'),
+(5, 'seervice 5', 'contenue service 5', 'images/1661170442.jpg', 111, '2022-08-22', 1, 3, 3, '2022-08-22', '2022-08-22');
 
 -- --------------------------------------------------------
 
@@ -273,7 +271,7 @@ CREATE TABLE `slides` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `contenue` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dateCreation` date NOT NULL,
+  `dateCreation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `idUtilisateur` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -284,8 +282,8 @@ CREATE TABLE `slides` (
 --
 
 INSERT INTO `slides` (`id`, `contenue`, `image`, `dateCreation`, `idUtilisateur`, `created_at`, `updated_at`) VALUES
-(1, 'continue 1', 'images/1659877494.jpg', '2022-08-07', 1, '2022-08-07 13:04:54', '2022-08-07 13:04:54'),
-(2, 'continue 2', 'images/1659877529.jpg', '2022-08-07', 1, '2022-08-07 13:05:29', '2022-08-07 13:05:29');
+(2, 'contenue slide 1', 'images/1660655241.jpg', '2022-08-16', 2, '2022-08-16 13:07:21', '2022-08-16 13:07:21'),
+(5, 'contenue slide 2', 'images/1661172064.jpg', '2022-08-22', 2, '2022-08-22 12:41:04', '2022-08-22 12:41:04');
 
 -- --------------------------------------------------------
 
@@ -296,7 +294,7 @@ INSERT INTO `slides` (`id`, `contenue`, `image`, `dateCreation`, `idUtilisateur`
 CREATE TABLE `type_pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `nomType` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `dateCreation` date NOT NULL,
+  `dateCreation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   `idUtilisateur` bigint(20) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -308,9 +306,9 @@ CREATE TABLE `type_pages` (
 --
 
 INSERT INTO `type_pages` (`id`, `nomType`, `dateCreation`, `status`, `idUtilisateur`, `created_at`, `updated_at`) VALUES
-(3, 'page 1', '2022-08-07', 1, 1, '2022-08-07 13:02:31', '2022-08-07 13:02:31'),
-(4, 'page 2', '2022-08-07', 1, 1, '2022-08-07 13:02:44', '2022-08-07 13:02:44'),
-(5, 'page 3', '2022-08-07', 1, 1, '2022-08-07 13:02:59', '2022-08-07 13:02:59');
+(3, 'typePage1', '2022-08-16', 1, 2, '2022-08-16 13:03:37', '2022-08-16 13:03:37'),
+(4, 'typePage2', '2022-08-16', 1, 2, '2022-08-16 13:03:55', '2022-08-16 13:03:55'),
+(5, 'typePage3', '2022-08-16', 1, 2, '2022-08-16 13:04:08', '2022-08-16 13:04:08');
 
 -- --------------------------------------------------------
 
@@ -331,9 +329,8 @@ CREATE TABLE `type_services` (
 --
 
 INSERT INTO `type_services` (`id`, `nomTypeService`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'service 1', 1, '2022-08-06 18:32:25', '2022-08-06 18:32:25'),
-(2, 'service 2', 1, '2022-08-06 18:32:35', '2022-08-06 18:32:35'),
-(3, 'service 3', 1, '2022-08-06 18:32:46', '2022-08-06 18:32:46');
+(1, 'typeService 1', 1, '2022-08-16 13:04:23', '2022-08-16 13:04:23'),
+(3, 'typeService 3', 1, '2022-08-16 13:04:46', '2022-08-16 13:04:46');
 
 -- --------------------------------------------------------
 
@@ -378,8 +375,9 @@ CREATE TABLE `utilisateurs` (
 --
 
 INSERT INTO `utilisateurs` (`id`, `nom`, `prenom`, `email`, `password`, `telephone`, `adresse`, `photo`, `status`, `idProfil`, `created_at`, `updated_at`) VALUES
-(1, 'Diaw', 'Mor', 'diawlemor97@gmail.com', '$2y$10$LBn3M6Gw4dxhfwOdajy5NOUhdceW0CUcUwAgpoNIw4/eOuetkQF/S', '781879981', 'Yeumbeul Darou Salam 5c', 'images/1659876917.jpg', 1, 2, '2022-08-07 12:55:17', '2022-08-07 12:55:17'),
-(8, 'kebe', 'khady', 'kebe@gmail.omc', '$2y$10$6yr.i/.CvczkNR9Y.lUu4OWBhaBK935sark3fRZySHiandExK8BoK', '78 96 25 31', 'rufisque', 'images/1659876989.jpg', 0, 2, '2022-08-07 12:56:29', '2022-08-07 12:56:29');
+(2, 'Diaw', 'bamba', 'diaw@gmail.com', '$2y$10$L4ILKGLEiUrfGtPmht3ICOBHDoALjEZXL3mMldP0ZUW6MUskVZmqu', '78 965 63 96', 'rufisque', 'images/1660654785.jpg', 1, 2, '2022-08-16 12:59:45', '2022-08-16 12:59:45'),
+(3, 'kebe', 'khady', 'kebe@gmail.com', '$2y$10$Knnf9o5sXK2bjfsv.uwAjOvtc1rTTOobf8FvMEFix08QgrvPBeDFm', '78 965 32 65', 'rufisque', 'images/1660654850.jpg', 1, 1, '2022-08-16 13:00:50', '2022-08-16 13:00:50'),
+(4, 'kebe', 'khady', 'khady.kebe@univ-thies.sn', '$2y$10$J1Z9gpD5l.tGGSQT7F31ke754okHJdqJg9JtZyfARali52hgVmK2G', '7818799866', 'rufisque', 'images/1661177320.jpg', 1, 2, '2022-08-22 14:08:40', '2022-08-26 13:59:28');
 
 --
 -- Index pour les tables déchargées
@@ -508,13 +506,13 @@ ALTER TABLE `utilisateurs`
 -- AUTO_INCREMENT pour la table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `demande_services`
 --
 ALTER TABLE `demande_services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `evenements`
@@ -532,19 +530,19 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT pour la table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `partenairs`
 --
 ALTER TABLE `partenairs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `personal_access_tokens`
@@ -556,25 +554,25 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT pour la table `profils`
 --
 ALTER TABLE `profils`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `services`
 --
 ALTER TABLE `services`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `slides`
 --
 ALTER TABLE `slides`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `type_pages`
 --
 ALTER TABLE `type_pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT pour la table `type_services`
@@ -592,7 +590,50 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `utilisateurs`
 --
 ALTER TABLE `utilisateurs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `demande_services`
+--
+ALTER TABLE `demande_services`
+  ADD CONSTRAINT `demande_services_idclient_foreign` FOREIGN KEY (`idClient`) REFERENCES `clients` (`id`),
+  ADD CONSTRAINT `demande_services_idservice_foreign` FOREIGN KEY (`idService`) REFERENCES `services` (`id`);
+
+--
+-- Contraintes pour la table `pages`
+--
+ALTER TABLE `pages`
+  ADD CONSTRAINT `pages_idtypepage_foreign` FOREIGN KEY (`idTypePage`) REFERENCES `type_pages` (`id`),
+  ADD CONSTRAINT `pages_idutilisateur_foreign` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`id`);
+
+--
+-- Contraintes pour la table `services`
+--
+ALTER TABLE `services`
+  ADD CONSTRAINT `services_idtypeservice_foreign` FOREIGN KEY (`idTypeService`) REFERENCES `type_services` (`id`),
+  ADD CONSTRAINT `services_idutilisateur_foreign` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`id`);
+
+--
+-- Contraintes pour la table `slides`
+--
+ALTER TABLE `slides`
+  ADD CONSTRAINT `slides_idutilisateur_foreign` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`id`);
+
+--
+-- Contraintes pour la table `type_pages`
+--
+ALTER TABLE `type_pages`
+  ADD CONSTRAINT `type_pages_idutilisateur_foreign` FOREIGN KEY (`idUtilisateur`) REFERENCES `utilisateurs` (`id`);
+
+--
+-- Contraintes pour la table `utilisateurs`
+--
+ALTER TABLE `utilisateurs`
+  ADD CONSTRAINT `utilisateurs_idprofil_foreign` FOREIGN KEY (`idProfil`) REFERENCES `profils` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

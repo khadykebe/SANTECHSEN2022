@@ -122,6 +122,6 @@ Route::get('admin',[DemandeController::class,'AllDemande']);
 Route::get('Demande',[DemandeController::class,'DemandeClient']);
 Route::get('delet/{id}',[DemandeController::class,'deleteDemande'])->name('delete.demande');
 
-Route::get('send_mail',[mailController::class,'sendmail']);
+#Route::get('send_mail',[mailController::class,'sendmail']);
 
 
