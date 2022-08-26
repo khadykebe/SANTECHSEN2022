@@ -31,7 +31,7 @@ class LoginController extends Controller
             $code = mt_Rand(1000, 9999);
             session()->put('code',$code);
             Mail::to($user->email)->send(new ForgetPassword($code));
-            return redirect()->back()->with('message','reussit');
+            return redirect('changerPassword')->with('message','un mail vous a été envoyer enter enter le code pour assurer la securiter');
         }
 
      }
@@ -39,11 +39,11 @@ class LoginController extends Controller
      public function confirmationCode(Request $request){
             $this->validate($request ,[ 'code' => 'required']);
             if($request->code == session()->get('code')){
-                return redirect()->back()->with('message','reussit');
+                return redirect('changerPassword')->with('messag','reussit');
             }
 
             else 
-                return redirect()->back()->with('message','non_reussit');
+                return redirect()->back()->with('mess','non_reussit');
 
      }
      
@@ -54,10 +54,12 @@ class LoginController extends Controller
           ]);
           if($request->password == $request->confirmePasword){
             $user = Utilisateur::where('email' ,session()->get('email'))->first();
-            $user->password = $request->password;
+            $user->password = bcrypt($request->confirmePasword);
+            $user->save();
             return redirect('admin');
-              
           }
+          else
+            return redirect()->back();
 
      }
 }

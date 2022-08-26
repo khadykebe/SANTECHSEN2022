@@ -43,6 +43,7 @@ Route::get('service',function(){return view('PARENT.Service.service');});
 Route::get('client',function(){return view('PARENT.Service.Client');});
 Route::get('TypeService',function(){return view('PARENT.Parametre.TypeService');});
 Route::get('TypePage',function(){return view('PARENT.Parametre.TypePage');});
+Route::get('changerPassword',function(){return view('emails.changerPassword');});
 
 
 //login utilisateur
@@ -122,6 +123,5 @@ Route::get('Demande',[DemandeController::class,'DemandeClient']);
 Route::get('delet/{id}',[DemandeController::class,'deleteDemande'])->name('delete.demande');
 
 Route::get('send_mail',[mailController::class,'sendmail']);
-
 
 

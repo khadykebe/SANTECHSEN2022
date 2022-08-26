@@ -423,7 +423,7 @@
                                     </div>
 
                                     <div class="media-body">
-                                        Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+                                        Lorem Ipsum, you need to be sure there isnt anything embarrassing hidden in the
                                         <br>
                                         <small class="text-muted">Monday 8:37 pm</small>
                                     </div>

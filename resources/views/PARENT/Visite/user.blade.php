@@ -84,6 +84,7 @@
                         <p>
                             <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a>
                         </p>
+                        
                     </div>
                     <!-- <div class="carousel-image wow zoomIn">
                     <img src="img/laptop.png" alt="laptop"/>
