@@ -79,8 +79,9 @@
             <div class="item active">
                 <div class="container">
                     <div class="carousel-caption">
-
-                        <h1>{{ $slide1->contenue }}</h1><br />
+                        @if($slide1 ?? false)
+                            <h1>{{ $slide1->contenue }}</h1><br />
+                        @endif
                         <p>
                             <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a>
                         </p>
@@ -93,13 +94,17 @@
                 </div>
                 <!-- Set background for slide in css -->
                 <div class="header-back one">
+                @if($slide1)
                     <img src="{{ Storage::url($slide1->image) }}" alt="" style="height: 500px;width:1707px">
+                @endif
                 </div>
             </div>
             <div class="item ">
                 <div class="container">
                     <div class="carousel-caption">
+                    @if($slide2 ?? false)
                         <h1>{{ $slide2->contenue }}</h1><br />
+                    @endif
                         <p>
                             <a class="btn btn-lg btn-primary" href="#" role="button">lien youtube</a></a>
                         </p>
@@ -110,7 +115,9 @@
                 </div>
                 <!-- Set background for slide in css -->
                 <div class="header-back one">
+                @if($slide2 ?? false)
                     <img src="{{ Storage::url($slide2->image) }}" alt="" style="height: 500px;width:1707px">
+                @endif
                 </div>
             </div>
 
@@ -131,7 +138,7 @@
         <div class="container">
             @if (session()->get('mess'))
             <center>
-                <div class="alert alert-success">
+                <div class="alert alert-success" style="margin-top:2%">
                     <h4>{{ session()->get('mess') }}</h4>
                 </div>
             </center>
@@ -374,7 +381,7 @@
                                   </div>  
                             </div>
                         </div>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">annuler</button>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </form>
                 </div>

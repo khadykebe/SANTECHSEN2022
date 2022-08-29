@@ -142,19 +142,21 @@
                                     </ul>
                                 </div><br />
                             @endif
-                            <form action="{{ route('profil.update', $profil->id) }}" method="post" class="form-validate">
-                                <div class="form-group">
-                                    @csrf
-                                    @method('PUT')
-                                    <label for="">Role<strong style="color:red;">*</strong></label>
-                                    <input type="text" name="nomprofil" id="nomprofil" class="form-control"
-                                        placeholder="" aria-describedby="helpId"
-                                        value="{{ old('nomprofil') ?? $profil->nomprofil }}">
-                                    <small id="helpId" class="text-muted">Help text</small>
-                                </div>
-                                <button type="reset" class="btn btn-secondary" data-dismiss="modal">annuler</button>
-                                <button type="submit" class="btn btn-primary">valider</button>
-                            </form>
+                            @if ($profils ?? false)
+                                    <form action="{{ route('profil.update', $profil->id) }}" method="post" class="form-validate">
+                                        <div class="form-group">
+                                            @csrf
+                                            @method('PUT')
+                                            <label for="">Role<strong style="color:red;">*</strong></label>
+                                            <input type="text" name="nomprofil" id="nomprofil" class="form-control"
+                                                placeholder="" aria-describedby="helpId"
+                                                value="{{ old('nomprofil') ?? $profil->nomprofil }}">
+                                            <small id="helpId" class="text-muted">Help text</small>
+                                        </div>
+                                        <button type="reset" class="btn btn-secondary" data-dismiss="modal">annuler</button>
+                                        <button type="submit" class="btn btn-primary">valider</button>
+                                    </form>
+                            @endif
                         </div>
                     </div>
                 </div>

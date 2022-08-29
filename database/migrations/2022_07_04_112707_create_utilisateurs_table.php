@@ -25,7 +25,7 @@ class CreateUtilisateursTable extends Migration
             $table->integer("status");
             $table->unsignedBigInteger("idProfil")->nullable();
 
-            $table->foreign("idProfil")->references("id")->on("profils");
+            $table->foreign("idProfil")->references("id")->on("profils")->onDelete('set null');
 
             $table->timestamps();
         });

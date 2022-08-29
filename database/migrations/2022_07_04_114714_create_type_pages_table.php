@@ -21,7 +21,7 @@ class CreateTypePagesTable extends Migration
 
             $table->unsignedBigInteger("idUtilisateur")->nullable();
 
-            $table->foreign("idUtilisateur")->references("id")->on("utilisateurs");
+            $table->foreign("idUtilisateur")->references("id")->on("utilisateurs")->onDelete('set null');
 
             $table->timestamps();
         });

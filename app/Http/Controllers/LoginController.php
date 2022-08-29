@@ -6,6 +6,7 @@ use App\Mail\ForgetPassword;
 use App\Models\Utilisateur;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 
@@ -61,5 +62,10 @@ class LoginController extends Controller
           else
             return redirect()->back();
 
+     }
+
+     public function logout(){
+         Auth::logout();
+         return redirect('/');
      }
 }

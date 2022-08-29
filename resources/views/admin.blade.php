@@ -55,7 +55,6 @@
 
                     </li>
 
-
                     <li>
                         <a href="#"><i class="fa fa-wheelchair"></i> <span class="nav-label">Administrateur</span> <span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
@@ -704,7 +703,7 @@
                             <h4>Settings</h4>
                             <div class="small">
                                 I belive that. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                And typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                                And typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s.
                                 Over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
                             </div>
                         </div>
@@ -726,20 +725,13 @@
                                                     <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                                                 <h3 class="m-t-center-b"><center><strong style="color: red">Cormfirmer la Deconnexion !!</strong> </center></h3>
                                                     <center><p>Voulez-vous Quitter votre session ??</p></center>
-
-
-
-
                                                      <div class="col-xs-12" style="text-align: right;">
-                                                    <button type="button" class="close" data-dismiss="modal">
-                                                        Non
-                                                   </button>
-                                                   <a href="{{URL::to('/logout')}}">
-                                                     <button  class="btn btn-danger" name="submit"> Deconnecter</button>
-                                                     </a>
+                                                    <button type="button" class="close" data-dismiss="modal">Non</button>
+                                                    <form action="{{ route('logout') }}" method="post">
+                                                    @csrf
+                                                        <button  class="btn btn-danger" name="submit" > Deconnecter</button></form>
                                                   </div>
-                                                 </div>
-
+                                                 </div> 
                                         </div>
                                      </div>
                                  </div>

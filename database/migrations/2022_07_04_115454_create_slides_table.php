@@ -20,7 +20,7 @@ class CreateSlidesTable extends Migration
             $table->string("dateCreation");
 
             $table->unsignedBigInteger("idUtilisateur")->nullable();
-            $table->foreign("idUtilisateur")->references("id")->on("utilisateurs");
+            $table->foreign("idUtilisateur")->references("id")->on("utilisateurs")->onDelete('set null');
 
             $table->timestamps();
         });

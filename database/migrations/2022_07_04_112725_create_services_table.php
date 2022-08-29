@@ -25,8 +25,8 @@ class CreateServicesTable extends Migration
             $table->unsignedBigInteger("idTypeService")->nullable();
             $table->unsignedBigInteger("idUtilisateur")->nullable();
 
-            $table->foreign("idTypeService")->references("id")->on("type_services");
-            $table->foreign("idUtilisateur")->references("id")->on("utilisateurs");
+            $table->foreign("idTypeService")->references("id")->on("type_services")->onDelete('set null');
+            $table->foreign("idUtilisateur")->references("id")->on("utilisateurs")->onDelete('set null');
 
         });
     }

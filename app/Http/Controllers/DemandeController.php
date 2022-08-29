@@ -38,9 +38,8 @@ class DemandeController extends Controller
         $clients->emailClient = $request->emailClient;
         $clients->codeValidation = mt_Rand(1000, 9999);
         $clients->save();
-        
         Mail::to($clients->emailClient)->send(new SendMail($clients));
-        return redirect()->back()->with('message','reussit');             
+        return redirect('demande')->with('message','reussit');             
 
    }
 
@@ -64,7 +63,10 @@ class DemandeController extends Controller
         $slide1 = Slide::all()->first();
         $slide2 = Slide::all()->last();
         $services = Service::find(decrypt($id));
-        return view('PARENT.Visite.demande',compact('services','slide1','slide2'));
+        return view('PARENT.Visite.demande',compact('services','slide1','slide2'))->with(
+             session()->put('image',$services->image),
+             session()->put('id',$services->id)
+          );
 
     }
 

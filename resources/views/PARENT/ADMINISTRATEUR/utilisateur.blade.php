@@ -222,7 +222,7 @@
                                 </div><br />
                             @endif
 
-                            @if ($utilisateurs  ?? false)
+                            @if ($utilisateur  ?? false)
                             <form action="{{ route('utilisateur.update',$utilisateur->id) }}" method="post" class="form-validate"
                                 enctype="multipart/form-data">
                                 <div class="form-group">

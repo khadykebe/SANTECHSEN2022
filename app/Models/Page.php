@@ -18,6 +18,6 @@ class Page extends Model
     ];
 
     public function typepage(){
-        return $this->belongsTo(typepage::class);
+        return $this->belongsTo(Typepage::class);
     }
 }

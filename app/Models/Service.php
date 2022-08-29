@@ -20,7 +20,7 @@ class Service extends Model
     ];
 
     public function typepage(){
-        return $this->belongsTo(TypePage::class);
+        return $this->belongsTo(TypeService::class);
     }
 
     public function utilisateure(){

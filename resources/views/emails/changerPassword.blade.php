@@ -28,10 +28,10 @@
     <link rel="stylesheet" href="{{asset('Utilisateurs/css/style.css')}}">
 
 </head>
-<body id="page-top">
+<body>
 
 
-    <div class="container">
+    <div class="container  ">
         <div class="row">
             <div class="col-sm-4 col-xs-12">
                 <img src="../Utilisateurs/img/image001.jpg" alt="logo">
@@ -52,70 +52,72 @@
                 </ul>
             </div>
         </div>
-@if (session()->get('message'))
-  <div class="container">
-        <div class="row" style="margin-top:10%">
-            <div class="col-sm-8 offset-3">
-                <div class="card mb-3 ">
-                    <div class="row no-gutters ">
-                        <div class="col-md-4">
-                            <img src="./storage/images/1659876379.jpg" class="card-img" alt="" style="width: 200px; height:250px">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                            <h2>Réinitialisation </h2>
-                            {{ session()->get('message') }}
-                                <form action="{{ route('code.confirm') }}" method="post">
-                                @csrf
-                                    <label for=""></label>
-                                    <input type="text" name="code" id="code" class="form-control" placeholder="code vérification" aria-describedby="helpId"><br><br>
-                                    <button class="btn btn-primary" href="#" type="submit">envoyer</button>                                    
-                                </form>
+        @if(session()->get('message'))
+        <div class="container">
+            <div class="row" style="margin-top:10%">
+                <div class="col-sm-8 offset-3">
+                    <div class="card mb-3 ">
+                        <div class="row no-gutters ">
+                            <div class="col-md-4">
+                                <img src="./storage/images/1659876379.jpg" class="card-img" alt="" style="width: 300px; height:250px">
+                            </div>
+                            <div class="col-md-6 offset-1">
+                                <div class="card-body ">
+                                    <h2>Réinitialisation </h2>
+                                    <div class="alert alert-secondary">
+                                        {{session()->get('message') }}
+                                    </div>
+                                    <form action="{{ route('code.confirm') }}" method="post">
+                                        @csrf
+                                        <label for=""></label>
+                                        <input type="text" name="code" id="code" class="form-control" placeholder="code vérification" aria-describedby="helpId"><br>
+                                        <button class="btn btn-primary" href="#" type="submit">envoyer</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        @endif
 
-@endif
+        @if(session()->get('messag'))
 
-@if (session()->get('messag'))
-  <div class="container">
-        <div class="row" style="margin-top:10%">
-            <div class="col-sm-8 offset-3">
-                <div class="card mb-3 ">
-                    <div class="row no-gutters ">
-                        <div class="col-md-4">
-                            <img src="./storage/images/1659876379.jpg" class="card-img" alt="" style="width: 200px; height:250px">
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card-body">
-                            <h2>Réinitialisation </h2>
-                                <form action="{{ route('changer.pass') }}" method="post">
-                                  @csrf
-                                    <label for=""></label>
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="nouveau mot de passe" aria-describedby="helpId"><br><br>
-                                    <input type="password" name="confirmePasword" id="confirmePasword" class="form-control" placeholder="confirmer votre mot de passe" aria-describedby="helpId"><br><br>
-                                    <button class="btn btn-primary" href="#" type="submit">envoyer</button>                                    
-                                </form>
+        <div class="container">
+            <div class="row" style="margin-top:10%">
+                <div class="col-sm-8 offset-3">
+                    <div class="card mb-3 ">
+                        <div class="row no-gutters ">
+                            <div class="col-md-4">
+                                <img src="./storage/images/1659876379.jpg" class="card-img" alt="" style="width: 260px; height:300px">
+                            </div>
+                            <div class="col-md-6 offset-1">
+                                <di class="card-body">
+                                    <h2>Réinitialisation </h2>
+                                    <form action="{{ route('changer.pass') }}" method="post">
+                                        @csrf
+                                        <label for=""></label>
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="nouveau mot de passe" aria-describedby="helpId"><br>
+                                        <input type="password" name="confirmePasword" id="confirmePasword" class="form-control" placeholder="confirmer votre mot de passe" aria-describedby="helpId"><br>
+                                        <button class="btn btn-primary" href="#" type="submit">envoyer</button>
+                                    </form>
+                                </di>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        @endif
 
-@endif
-    
-    <script src="{{asset('Utilisateurs/js/jquery-2.1.1.js')}}"></script>
-    <script src="{{asset('Utilisateurs/js/pace.min.js')}}"></script>
-    <script src="{{asset('Utilisateurs/js/bootstrap.min.js')}}"></script>
-    <script src="{{asset('Utilisateurs/js/classie.js')}}"></script>
-    <script src="{{asset('Utilisateurs/js/cbpAnimatedHeader.js')}}"></script>
-    <script src="{{asset('Utilisateurs/js/wow.min.js')}}"></script>
-    <script src="{{asset('Utilisateurs/js/inspinia.js')}}"></script>
+
+        <script src="{{asset('Utilisateurs/js/jquery-2.1.1.js')}}"></script>
+        <script src="{{asset('Utilisateurs/js/pace.min.js')}}"></script>
+        <script src="{{asset('Utilisateurs/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('Utilisateurs/js/classie.js')}}"></script>
+        <script src="{{asset('Utilisateurs/js/cbpAnimatedHeader.js')}}"></script>
+        <script src="{{asset('Utilisateurs/js/wow.min.js')}}"></script>
+        <script src="{{asset('Utilisateurs/js/inspinia.js')}}"></script>
 </body>
 </html>

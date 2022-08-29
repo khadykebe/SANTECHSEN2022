@@ -19,8 +19,8 @@ class CreateDemandeServicesTable extends Migration
             $table->unsignedBigInteger("idService")->nullable();
             $table->unsignedBigInteger("idClient")->nullable();
 
-            $table->foreign("idService")->references("id")->on("services");
-            $table->foreign("idClient")->references("id")->on("clients");
+            $table->foreign("idService")->references("id")->on("services")->onDelete('set null');
+            $table->foreign("idClient")->references("id")->on("clients")->onDelete('set null');
 
             $table->timestamps();
         });
