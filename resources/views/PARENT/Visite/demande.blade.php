@@ -11,6 +11,7 @@
 
     <title>SANTECHSEN</title>
 
+    <link href="{{ asset('css/plugins/ladda/ladda-themeless.min.css') }}" rel="stylesheet">
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -115,7 +116,7 @@
                                                         <input type="email" name="emailClient" id="emailClient" class="form-control" placeholder="email" aria-describedby="helpId"><br>
                                                         <div style="text-align: end">
                                                             <button type="button" href="/" class="btn btn-secondary btn-lg">Annuler</button>
-                                                            <button type="submit" class="btn btn-primary">Envoyer</button>
+                                                            <button type="submit" class="ladda-button btn btn-primary"   data-style="expand-left">Envoyer</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -131,6 +132,49 @@
         </section>
     </div>
 
+
+    <script>
+
+    $(document).ready(function (){
+
+        // Bind normal buttons
+        Ladda.bind( '.ladda-button',{ timeout: 2000 });
+
+        // Bind progress buttons and simulate loading progress
+        Ladda.bind( '.progress-demo .ladda-button',{
+            callback: function( instance ){
+                var progress = 0;
+                var interval = setInterval( function(){
+                    progress = Math.min( progress + Math.random() * 0.1, 1 );
+                    instance.setProgress( progress );
+
+                    if( progress === 1 ){
+                        instance.stop();
+                        clearInterval( interval );
+                    }
+                }, 200 );
+            }
+        });
+
+
+        var l = $( '.ladda-button-demo' ).ladda();
+
+        l.click(function(){
+            // Start loading
+            l.ladda( 'start' );
+
+            // Timeout example
+            // Do something in backend and then stop ladda
+            setTimeout(function(){
+                l.ladda('stop');
+            },12000)
+
+
+        });
+
+    });
+
+</script>
 
     <script src="{{asset('Utilisateurs/js/jquery-2.1.1.js')}}"></script>
     <script src="{{asset('Utilisateurs/js/pace.min.js')}}"></script>

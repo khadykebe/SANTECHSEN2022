@@ -10,18 +10,19 @@
     <!--<link rel="icon" href="img/favicon.ico">-->
 
     <title>SANTECHSEN</title>
+        
+    <link href="asset('Admins/css/bootstrap.min.css')" rel="stylesheet">
+    <link href="{{ asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
+    <!-- Toastr style -->
+    <link href="{{ asset('Admins/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
 
-    <!-- Bootstrap core CSS -->
+    <link href="asset('Admins/css/animate.css')" rel="stylesheet">
+    <link href="{{ asset('Utilisateurs/css/style.css') }}" rel="stylesheet">
+
     <link rel="stylesheet" href="{{asset('Utilisateurs/css/bootstrap.min.css')}}">
-
-    <!-- Animation CSS -->
     <link rel="stylesheet" href="{{asset('Utilisateurs/css/animate.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('font-awesome/css/font-awesome.min.css')}}">
-
-
-    <!-- Custom styles pour this template -->
     <link rel="stylesheet" href="{{asset('Utilisateurs/css/style.css')}}">
 </head>
 <body id="page-top">
@@ -131,10 +132,10 @@
             <span class="sr-only">Next</span>
         </a>
 
-    </div><br><br><br><br>
+    </div>
 
 
-    <section id="pricing" class="pricing">
+    <section id="pricing" class="pricing comments gray-section">
         <div class="container">
             @if (session()->get('mess'))
             <center>
@@ -152,38 +153,38 @@
 
             <div class="row">
                 @foreach ($services as $item )
-                <div class="col-sm-4 wow zoomIn">
-                    <ul class="pricing-plan list-unstyled  selected">
-                        <li class="pricing-title">
-                            {{$item->nomService}}
-                        </li>
-                        <li class="pricing-desc">
-                            <img src="{{Storage::url($item->image)}}" alt="" style="height:100px; width:200px">
-                        </li>
-                        <li class="pricing-price">
-                            {{$item->contenue}}
-                        </li>
-                        <li>
-                            {{$item->cout}}
-                        </li>
-                        <li>
-                            {{$item->dateCreation}}
-                        </li>
-                        <li>
-                            {{$item->nomTypeService}}
-                        </li>
+                <div class="col-md-4">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
 
-                        <li>
-                            <a class="btn btn-primary btn-xs" href="{{route('serviceById',Crypt::encrypt($item->id))}}">Signup</a>
-                        </li>
-                    </ul>
+                            <div class="product-imitation">
+                                <img src="{{ Storage::url($item->image) }}" alt="" >
+                            </div>
+                            <div class="product-desc" >
+                                <span class="product-price">
+                                    {{ $item->cout }} f
+                                </span>
+                                <small class="text-muted">{{ $item->nomTypeService }}</small>
+                                <a href="#" class="product-name"> {{ $item->nomService }}</a>
+
+                                <div class="small m-t-xs">
+                                {{ $item->contenue }}
+                                    Many desktop publishing packages and web page editors now.
+                                </div>
+                                <div class="m-t text-righ">
+                
+                                    <a href="{{route('serviceById',Crypt::encrypt($item->id))}}" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 @endforeach
 
-            </div><br><br><br><br>
-    </section>
-    <section id="testimonials" style="margin-top: 0">
-        <div class="container comments gray-section">
+            </div>
+    </section><br><br>
+      <section id="testimonials" style="margin-top: 0" class="comments gray-section">
+        <div class="container ">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="navy-line"></div>
@@ -236,9 +237,9 @@
                 <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
                 <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
             </div>
-        </div><br><br><br><br><br><br>
+        </div><br><br>
     </section>
-    <section id="team">
+    <section id="team"class="gray-section" >
         <div class="container  gray-section team">
             <div class="row m-b-lg">
                 <div class="col-lg-12 text-center">
@@ -250,7 +251,7 @@
             <div class="row">
                 <div class="col-sm-4 wow fadeInLeft">
                     <div class="team-member">
-                        <img src="../storage/images/1658749109.jpg" class="img-responsive img-circle img-small" alt="">
+                        <img src="Admins/img/Ywk6MagyeTEretcWCCz5.jpeg" class="img-responsive img-circle img-small" alt="">
                         <h4><span class="navy">Amelia</span> Smith</h4>
                         <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus. </p>
                         <ul class="list-inline social-icon">
@@ -265,7 +266,7 @@
                 </div>
                 <div class="col-sm-4">
                     <div class="team-member wow zoomIn">
-                        <img src="../storage/images/1658749136.jpg" class="img-responsive img-circle img-small" alt="">
+                        <img src="Admins/img/Ywk6MagyeTEretcWCCz5.jpeg" class="img-responsive img-circle img-small" alt="">
                         <h4><span class="navy">John</span> Novak</h4>
                         <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
                         <ul class="list-inline social-icon">
@@ -280,7 +281,7 @@
                 </div>
                 <div class="col-sm-4 wow fadeInRight">
                     <div class="team-member">
-                        <img src="../storage/images/1658749109.jpg" class="img-responsive img-circle img-small" alt="">
+                        <img src="Admins/img/Ywk6MagyeTEretcWCCz5.jpeg" class="img-responsive img-circle img-small" alt="">
                         <h4><span class="navy">Peter</span> Johnson</h4>
                         <p>Lorem ipsum dolor sit amet, illum fastidii dissentias quo ne. Sea ne sint animal iisque, nam an soluta sensibus.</p>
                         <ul class="list-inline social-icon">

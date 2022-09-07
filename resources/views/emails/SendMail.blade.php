@@ -1,22 +1,63 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>test email</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Actionable emails e.g. reset password</title>
+    <link href="{{ asset('Admins/email_templates/styles.css') }}" media="all" rel="stylesheet" type="text/css" />
+</head>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
-  <body>
-      <h1>{{ $clients->nomclient }}</h1>
-      <p>{{  $clients->prenomclient }}</p> 
-      <p>{{  $clients->codeValidation }}</p> 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+<body>
+
+<table class="body-wrap">
+    <tr>
+        <td></td>
+        <td class="container" width="600">
+            <div class="content">
+                <table class="main" width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="content-wrap">
+                            <table  cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td>
+                                        <img class="img-responsive" src="../Utilisateurs/img/image001.jpg"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        <h3>Welcom in basic email template</h3>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                        We may need to send you critical information about our service and it is important that we have an accurate email address.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block aligncenter">
+                                        <a href="#" class="btn-primary">Confirm email address</a>
+                                    </td>
+                                </tr>
+                              </table>
+                        </td>
+                    </tr>
+                </table>
+                <div class="footer">
+                    <table width="100%">
+                        <tr>
+                            <td class="aligncenter content-block">Follow <a href="#">@Company</a> on Twitter.</td>
+                        </tr>
+                    </table>
+                </div></div>
+        </td>
+        <td></td>
+    </tr>
+</table>
+
+</body>
 </html>
